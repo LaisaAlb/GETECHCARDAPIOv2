@@ -1,0 +1,39 @@
+.header{
+    display: flex;
+    align-items: center;
+    background-color: #021442;
+    display: flex;
+    color: #fff;
+}
+
+.header a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header .logo{
+    max-height: 40px;
+    margin-left: 30px;
+}
+.header h2 {
+    margin-right: 10px;
+}
+
+.header .title-group{
+    padding-left: 25px;
+}
+.header .title-group i{
+    padding-right: 5px;
+}
+.header .imgCardapio img{
+    max-height: 25px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
+.example-icon{
+    margin-right: 10px;
+}

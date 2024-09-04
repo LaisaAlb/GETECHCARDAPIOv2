@@ -1,0 +1,19 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+ 
+.footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #021442;
+    display: flex;
+    justify-content: flex-end;
+    height: 85px;
+    color: #fff;
+}
+
+.footer .logo{
+    max-height: 50px;
+    margin-top: 10px;
+    margin-left: 30px;
+}
