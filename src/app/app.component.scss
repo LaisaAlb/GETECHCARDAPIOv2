@@ -1,1 +1,60 @@
-@import 'bootstrap/dist/css/bootstrap.css'
+@import 'bootstrap/dist/css/bootstrap.css';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+.left-container {
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-div {
+  width: 100%;
+}
+
+.footer-div {
+  width: 100%;
+}
+
+.carousel {
+  width: 100%;
+  height: 300px;
+  background-color: hsl(228, 100%, 10%);
+  margin-top: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-product {
+  margin-top: 5%; 
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px; 
+}
+
+/* Cards individuais */
+.card-product app-card-product {
+  flex: 1 1 300px; /* Tamanho mínimo de 300px para cada card, mas pode crescer conforme o espaço */
+  max-width: 400px; /* Limite máximo do tamanho do card */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .carousel {
+    height: 200px; /* Diminui o tamanho do carousel em telas pequenas */
+  }
+
+  .card-product {
+    flex-direction: column; /* Empilha os cards em telas menores */
+    margin-top: 10%;
+  }
+}

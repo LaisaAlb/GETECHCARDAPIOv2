@@ -1,20 +1,22 @@
-.example-spacer {
-    flex: 1 1 auto;
-}
- 
 .footer {
-    position: fixed;
-    bottom: 0;
     background-color: #021442;
     display: flex;
     justify-content: flex-end;
     height: 85px;
     color: #fff;
-    width: 88.5%;
-}
-
-.footer .logo{
+    width: 100%; 
+    padding: 10px 20px; 
+    box-sizing: border-box; 
+    margin-top: 5%;
+  }
+  
+  .footer .logo {
     max-height: 50px;
     margin-top: 10px;
     margin-left: 30px;
-}
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  

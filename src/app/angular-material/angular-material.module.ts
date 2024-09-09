@@ -12,6 +12,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+
 @NgModule({
     declarations: [], 
     imports: [
@@ -23,7 +24,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
         MatDatepickerModule,
         MatSelectModule,
         MatTableModule,
-        MatToolbarModule
+        MatToolbarModule,
     ],
     exports: [
         MatButtonModule,
@@ -34,7 +35,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
         MatDatepickerModule,
         MatSelectModule,
         MatTableModule,
-        MatToolbarModule
+        MatToolbarModule,
     ],
     providers: [
         provideNativeDateAdapter()
