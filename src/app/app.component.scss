@@ -41,20 +41,19 @@
   gap: 20px; 
 }
 
-/* Cards individuais */
+
 .card-product app-card-product {
-  flex: 1 1 300px; /* Tamanho mínimo de 300px para cada card, mas pode crescer conforme o espaço */
-  max-width: 400px; /* Limite máximo do tamanho do card */
+  flex: 1 1 300px; 
+  max-width: 400px; 
 }
 
-/* Responsividade para telas menores */
 @media (max-width: 768px) {
   .carousel {
-    height: 200px; /* Diminui o tamanho do carousel em telas pequenas */
+    height: 200px;
   }
 
   .card-product {
-    flex-direction: column; /* Empilha os cards em telas menores */
+    flex-direction: column; 
     margin-top: 10%;
   }
 }
