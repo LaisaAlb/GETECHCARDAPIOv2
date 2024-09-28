@@ -9,18 +9,25 @@ import { ComponentsModule } from './components/components.module';
 import { FooterComponent } from './templates/footer/footer.component';
 import { HeaderComponent } from './templates/header/header.component';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
+import { ImageSliderComponent } from './image-slider/image-slider.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    ImageSliderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ComponentsModule ,
-    AngularMaterialModule
+    AngularMaterialModule,
+    FontAwesomeModule,
+  ],
+  exports: [
+    ImageSliderComponent
   ],
   providers: [
     provideClientHydration(),

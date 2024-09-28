@@ -5,7 +5,13 @@
       </div>
 
       <div class="carousel">
-        <app-carousel> </app-carousel>
+        <app-image-slider
+        [indicatorsVisible]="true"
+        [animationSpeed]="200"
+        [slides]="slides"
+        [autoPlay]="true"
+        [autoPlaySpeed]="5000"
+        ></app-image-slider>
       </div>
 
       <div class="card-product"> 
