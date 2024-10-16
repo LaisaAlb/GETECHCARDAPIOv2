@@ -4,20 +4,18 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-card-product',
   templateUrl: './card-product.component.html',
-  styleUrl: './card-product.component.scss'
+  styleUrls: ['./card-product.component.scss']  
 })
 export class CardProductComponent implements OnInit {
-
+  
   productsCards: any[] = []; 
 
-  constructor(
-    private CardProductService: CardProductService
-    ){}; 
+  constructor(private cardProductService: CardProductService) {} 
   
-   ngOnInit(): void {
-    this.CardProductService.getProducts().subscribe((data: any[])=> {
+  ngOnInit(): void {
+    this.cardProductService.getProducts().subscribe((data: any[]) => {
       this.productsCards = data.slice(0, 4); 
-    })
-   }
-
+    });
+  }
 }
+

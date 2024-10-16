@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,13 +26,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ComponentsModule ,
     AngularMaterialModule,
     FontAwesomeModule,
+    HttpClientModule
   ],
   exports: [
     ImageSliderComponent
   ],
   providers: [
     provideClientHydration(),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })

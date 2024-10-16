@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class CardProductService {
 
-  private apiUrl = 'link da API'; 
+  private apiUrl = 'http://8b38091fc43d.sn.mynetname.net:2001/dev/cheff/api/public/api/product'; 
 
   constructor(private http:HttpClient) { }
 
