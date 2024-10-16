@@ -33,12 +33,12 @@
   margin-top: -60px;
 }
 
-.card-product {
-  margin-top: 5%; 
+.card-product { 
   width: 100%;
-  display: flex;
+  display: inline-block;
   justify-content: center;
   flex-wrap: wrap;
+  align-items: center;
   gap: 20px; 
 }
 
@@ -57,4 +57,18 @@
     flex-direction: column; 
     margin-top: 10%;
   }
+}
+
+.nextButton{
+  position: absolute;
+  top: 135%;
+  right: 95px;
+  border: none;
+  background-color: transparent;
+  font-size: 30px;
+  color: #0030ab;
+}
+
+.products{
+  color: #011b5d; 
 }
