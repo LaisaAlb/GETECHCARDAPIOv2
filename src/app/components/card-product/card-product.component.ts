@@ -1,6 +1,6 @@
+import { Router } from '@angular/router';
 import { CardProductService } from './../../services/card.product.service';
-import { Component, OnInit } from '@angular/core';
-
+import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-card-product',
   templateUrl: './card-product.component.html',
@@ -10,12 +10,19 @@ export class CardProductComponent implements OnInit {
   
   productsCards: any[] = []; 
 
-  constructor(private cardProductService: CardProductService) {} 
+  constructor(
+    private cardProductService: CardProductService,
+    private router: Router
+  ) {} 
   
   ngOnInit(): void {
     this.cardProductService.getProducts().subscribe((data: any[]) => {
       this.productsCards = data.slice(0, 4); 
     });
+  }
+
+  next() {
+    this.router.navigate(['/list']); 
   }
 }
 

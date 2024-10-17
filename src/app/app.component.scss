@@ -1,4 +1,5 @@
 @import 'bootstrap/dist/css/bootstrap.css';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 .container {
   display: flex;
@@ -62,7 +63,7 @@
 .nextButton{
   position: absolute;
   top: 135%;
-  right: 95px;
+  right: 70px;
   border: none;
   background-color: transparent;
   font-size: 30px;
@@ -71,4 +72,7 @@
 
 .products{
   color: #011b5d; 
+  font-weight: bold; 
+  font-family: 'Noto Sans';
+
 }

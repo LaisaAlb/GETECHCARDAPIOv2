@@ -3,7 +3,7 @@
       <div class="top-div">
           <app-header></app-header>
       </div>
-
+    <div>
       <div class="carousel">
         <app-image-slider
         [indicatorsVisible]="true"
@@ -17,11 +17,11 @@
       <div class="card-product"> 
         <h2 class="products">Produtos</h2>
          <app-card-product> </app-card-product>
-         <button (click)="next()" class="nextButton">
+         <button (click)="next()" class="nextButton" routerLink="/list"> 
           <fa-icon [icon]="faArrowRight"></fa-icon>
         </button>
       </div>
-  
+    </div>
       <div class="footer-div">
          <app-footer></app-footer>
       </div>

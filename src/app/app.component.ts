@@ -1,9 +1,14 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { ImageSliderComponent } from './image-slider/image-slider.component';
-import { url } from 'inspector';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { Router, Routes } from '@angular/router';
+import { CardListComponent } from './components/card-list/card-list.component';
+import { CardProductComponent } from './components/card-product/card-product.component';
 
+const routes: Routes = [
+  { path: '', component: CardProductComponent },
+  { path: 'list', component: CardListComponent }
+];
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,6 +16,8 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent implements OnInit, OnDestroy{
   title = 'g3_cardapio';
+
+  constructor(private router: Router) {}
 
   @Input() animationSpeed = 500;
   
@@ -53,9 +60,9 @@ export class AppComponent implements OnInit, OnDestroy{
 
   //Next products
   next() {
-    let nextSlide = (this.currentSlide + 1) % this.slides.length;
-    this.jumpToSlide(nextSlide);
+    this.router.navigate(['/list']);;
   }
+  
   jumpToSlide(index: number) {
     this.hidden = true;
     setTimeout(() => {
@@ -63,16 +70,11 @@ export class AppComponent implements OnInit, OnDestroy{
       this.hidden = false;
     }, this.animationSpeed);
   }
-
-  constructor(){
-
-  }
   ngOnDestroy(): void {
     
   }
   ngOnInit() {
       
   }
-
 }
 

@@ -4,7 +4,8 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { CardProductComponent } from './card-product/card-product.component';
 import { CardListComponent } from './card-list/card-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CardProductService } from '../services/card.product.service';
+import { CardProductService } from '../services/card.product.service'
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CardProductService } from '../services/card.product.service';
   imports: [
     CommonModule, 
     HttpClientModule,
+    RouterModule
   ],
   exports: [
     CarouselComponent,

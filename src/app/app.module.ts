@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +19,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    ImageSliderComponent
+    ImageSliderComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +27,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ComponentsModule ,
     AngularMaterialModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
   ],
   exports: [
     ImageSliderComponent
