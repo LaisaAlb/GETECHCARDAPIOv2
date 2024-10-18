@@ -29,50 +29,61 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: auto;
   padding: 10px;
-  margin-top: -60px;
+  margin-top: 0;
+
+  @media (max-width: 768px) {
+    height: auto;
+  }
 }
 
-.card-product { 
-  width: 100%;
-  display: inline-block;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 20px; 
-}
+.card-product-container {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; 
 
+  .card-product {
+    flex: 1; 
+  }
 
-.card-product app-card-product {
-  flex: 1 1 300px; 
-  max-width: 400px; 
+  .nextButton, .previousButton {
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    color: #0030ab;
+  }
+
+  .nextButton{
+    position: relative;
+    margin-left: 20px;
+    margin-right: 0;
+    display: inline-block;
+    align-self: center;
+  }
 }
 
 @media (max-width: 768px) {
-  .carousel {
-    height: 200px;
+  .card-product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 
   .card-product {
-    flex-direction: column; 
-    margin-top: 10%;
+    max-width: 90%;
+    margin-bottom: 15px;
   }
-}
 
-.nextButton{
-  position: absolute;
-  top: 135%;
-  right: 70px;
-  border: none;
-  background-color: transparent;
-  font-size: 30px;
-  color: #0030ab;
-}
+  .card-product img {
+    max-width: 100%;
+    height: auto;
+  }
 
-.products{
-  color: #011b5d; 
-  font-weight: bold; 
-  font-family: 'Noto Sans';
-
+  .nextButton{
+    display: inline-block;
+    align-self: center;
+    margin-top: 10px;
+  }
 }
