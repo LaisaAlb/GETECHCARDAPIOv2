@@ -19,9 +19,9 @@ export class CardListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.cardProductService.getProducts().subscribe((data: any[]) => {
-      this.productsCards = data;
-    });
+    // this.cardProductService.getProducts().subscribe((data: any[]) => {
+    //   this.productsCards = data;
+    // });
     this.loadProducts();
   }
   previous() {
