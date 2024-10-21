@@ -1,15 +1,16 @@
 <button (click)="previous()" class="previousButton">
-  <fa-icon [icon]="faArrowLeft"></fa-icon>
+  <fa-icon [icon]="faArrowLeft" class="faArrowLeft"></fa-icon>
+  Voltar
 </button>
 
-<div class="card-container" *ngFor="let product of productsCards">
-  <div class="card">
+<div class="card-container">
+  <div class="card" *ngFor="let product of productsCards">
     <img [src]="product.imageUrl || '../../../assets/img/imgteste.png'" class="card-img-top" alt="{{ product.name }}">
     <div class="card-body">
       <h5 class="card-title">{{ product.name }}</h5>
       <p class="card-text">Descrição: {{ product.description }}</p>
       <p class="card-price">Preço: {{ product.price }}</p>
-      <!-- <div class="action-container">
+       <!-- <div class="action-container">
           <a href="#" class="btn btn-add">Adicionar 
             <img src="../../../assets/img/icons8-shopping-cart-48.png" id="carrinho" alt="Logo">
           </a>
@@ -20,7 +21,7 @@
               <a href="#" class="btn">-</a>
             </div>
           </div>
-        </div> -->
+        </div>  -->
     </div>
   </div>
 </div>
