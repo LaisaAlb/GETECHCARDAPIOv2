@@ -1,0 +1,14 @@
+<div class="carousel">
+    <app-image-slider [indicatorsVisible]="true" [animationSpeed]="200" [slides]="slides" [autoPlay]="true"
+        [autoPlaySpeed]="5000"></app-image-slider>
+</div>
+
+<div class="card-product-container">
+    <div class="card-product">
+        <h2 class="products">Produtos</h2>
+        <app-card-product></app-card-product>
+    </div>
+    <button (click)="next()" class="nextButton" routerLink="/list">
+        <fa-icon [icon]="faArrowRight"></fa-icon>
+    </button>
+</div>

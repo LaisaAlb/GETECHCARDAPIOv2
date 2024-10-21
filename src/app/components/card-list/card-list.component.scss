@@ -9,6 +9,7 @@
   border-radius: 8px;
   overflow: hidden;
   height: 300px;
+  flex-direction: column;
   width: 15rem; 
   @media (max-width: 768px) {
     width: 100%;
@@ -81,4 +82,16 @@
   border-radius: 4px;
   background-color: #007bff;
   color: #333;
+}
+
+ .previousButton {
+  border: none;
+  background-color: transparent;
+  font-size: 30px;
+  color: #0030ab;
+  position: relative;
+  margin-left: 20px;
+  margin-right: 0;
+  display: inline-block;
+  align-self: center;
 }

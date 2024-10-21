@@ -6,22 +6,30 @@ import { CardListComponent } from './card-list/card-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardProductService } from '../services/card.product.service'
 import { RouterModule } from '@angular/router';
+import { HomePageComponent } from './home-page/home-page.component';
+import { ImageSliderComponent } from '../image-slider/image-slider.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     CarouselComponent,
     CardProductComponent,
     CardListComponent,
+    HomePageComponent,
+    ImageSliderComponent
   ],
   imports: [
-    CommonModule, 
+    CommonModule,
     HttpClientModule,
-    RouterModule
-  ],
+    RouterModule,
+    FontAwesomeModule
+],
   exports: [
     CarouselComponent,
     CardProductComponent,
     CardListComponent,
+    ImageSliderComponent,
+    HomePageComponent
   ],
   providers: [
     CardProductService

@@ -1,11 +1,11 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CardProductComponent } from './components/card-product/card-product.component';
 import { CardListComponent } from './components/card-list/card-list.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 const routes: Routes = [
-  { path: '', component: CardProductComponent },
-  { path: 'list', component: CardListComponent },
+  { path: '', component: HomePageComponent }, 
+  { path: 'list', component: CardListComponent }, 
 ];
 
 @NgModule({
