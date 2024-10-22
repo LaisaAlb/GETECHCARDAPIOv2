@@ -7,7 +7,8 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CardProductService {
-  private apiUrl = 'http://8b38091fc43d.sn.mynetname.net:2001/dev/cheff/api/public/api/product';
+  // private apiUrl = 'http://8b38091fc43d.sn.mynetname.net:2001/dev/cheff/api/public/api/product';
+  private apiUrl = 'http://10.0.1.135:8080'
   private products: any[] = []; 
 
   constructor(private http: HttpClient) { }
@@ -18,9 +19,14 @@ export class CardProductService {
       return of(this.products);
     }
    
-    return this.http.get<any[]>(`${this.apiUrl}/products`).pipe(
+    return this.http.get<any[]>(`${this.apiUrl}/produtos`).pipe(
       tap(data => this.products = data) 
     );
   }
+
+  getImage(): Observable<string> {
+    return this.http.get('http://10.0.1.135:8080', { responseType: 'text' });
+  }
+
 }
 
