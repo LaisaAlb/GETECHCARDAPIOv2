@@ -7,8 +7,8 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CardProductService {
-  // private apiUrl = 'http://8b38091fc43d.sn.mynetname.net:2001/dev/cheff/api/public/api/product';
-  private apiUrl = 'http://10.0.1.135:8080'
+  private apiUrl = 'http://8b38091fc43d.sn.mynetname.net:2001/dev/cheff/api/public/api/product';
+  //private apiUrl = 'http://10.0.1.135:8080'
   private products: any[] = []; 
 
   constructor(private http: HttpClient) { }

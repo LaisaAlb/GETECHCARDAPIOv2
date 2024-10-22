@@ -5,7 +5,11 @@
 
 <div class="card-container">
   <div class="card" *ngFor="let product of productsCards">
-    <img [src]="product.imageUrl || '../../../assets/img/imgteste.png'" class="card-img-top" alt="{{ product.name }}">
+    <img 
+      [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'" 
+      class="card-img-top" 
+      alt="{{ product.name }}"
+    >
     <div class="card-body">
       <h5 class="card-title">{{ product.name }}</h5>
       <p class="card-text">Descrição: {{ product.description }}</p>
