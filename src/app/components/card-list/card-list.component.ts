@@ -32,5 +32,4 @@ export class CardListComponent implements OnInit {
       this.productsCards = data; 
     });
   }
-  
 }
