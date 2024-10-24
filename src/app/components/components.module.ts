@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ImageSliderComponent } from '../image-slider/image-slider.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CardProductPromotionComponent } from './card-product-promotion/card-product-promotion.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CardProductComponent,
     CardListComponent,
     HomePageComponent,
-    ImageSliderComponent
+    ImageSliderComponent,
+    CardProductPromotionComponent
   ],
   imports: [
     CommonModule,
@@ -29,10 +31,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CardProductComponent,
     CardListComponent,
     ImageSliderComponent,
-    HomePageComponent
+    HomePageComponent,
+    CardProductPromotionComponent
   ],
   providers: [
-    CardProductService
+    CardProductService,
   ]
 })
 export class ComponentsModule { }

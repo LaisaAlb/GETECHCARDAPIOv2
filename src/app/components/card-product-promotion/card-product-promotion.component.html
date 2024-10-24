@@ -1,0 +1,26 @@
+    <div class="card-container">
+      <div *ngFor="let product of productsOnSale" class="card">
+      <img 
+        [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'" 
+        class="card-img-top" 
+        alt="{{ product.name }}"
+      >
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text"> {{ product.description }}</p>
+        <p class="card-price">R$ {{ product.price }}</p>
+         <!-- <div class="action-container">
+            <a href="#" class="btn btn-add">Adicionar 
+              <img src="../../../assets/img/icons8-shopping-cart-48.png" id="carrinho" alt="Logo">
+            </a>
+            <div class="quantity-container">
+              <p class="card-text quantity-label">Quantidade:</p>
+              <div class="quantity-controls">
+                <a href="#" class="btn">+</a> 
+                <a href="#" class="btn">-</a>
+              </div>
+            </div>
+          </div>  -->
+      </div>
+    </div>
+  </div>

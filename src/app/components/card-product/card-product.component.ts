@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { CardProductService } from './../../services/card.product.service';
 import { Component, Input, OnInit } from '@angular/core';
+import { Product } from '../../interfaces/products';
 @Component({
   selector: 'app-card-product',
   templateUrl: './card-product.component.html',
@@ -8,6 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardProductComponent implements OnInit {
   
+  @Input() products: Product[] = [];
   productsCards: any[] = []; 
 
   constructor(

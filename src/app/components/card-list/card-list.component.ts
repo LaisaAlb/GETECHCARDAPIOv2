@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CardProductService } from '../../services/card.product.service';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router'; 
+import { Product } from '../../interfaces/products';
 
 @Component({
   selector: 'app-card-list',
@@ -9,7 +10,8 @@ import { Router } from '@angular/router';
   styleUrl: './card-list.component.scss'
 })
 export class CardListComponent implements OnInit {
-
+  
+  @Input() products: Product[] = [];
   productsCards: any[] = [];
   faArrowLeft = faArrowLeft;
 
