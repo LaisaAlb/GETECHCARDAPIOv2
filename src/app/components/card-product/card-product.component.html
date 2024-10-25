@@ -8,7 +8,7 @@
     <div class="card-body">
       <h5 class="card-title">{{ product.name }}</h5>
       <p class="card-text">{{ product.description }}</p>
-      <p class="card-price">R$ {{ product.price }}</p>
+      <p class="card-price">{{ product.price | currency:'BRL' : 'symbol' : '1.2-2' }}</p>
       <!-- <div class="action-container">
         <a href="#" class="btn btn-add">Adicionar 
           <img src="../../../assets/img/icons8-shopping-cart-48.png" id="carrinho" alt="Logo">
