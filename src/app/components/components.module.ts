@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarouselComponent } from './carousel/carousel.component';
 import { CardProductComponent } from './card-product/card-product.component';
@@ -34,6 +34,7 @@ import { CardProductPromotionComponent } from './card-product-promotion/card-pro
     HomePageComponent,
     CardProductPromotionComponent
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA], 
   providers: [
     CardProductService,
   ]

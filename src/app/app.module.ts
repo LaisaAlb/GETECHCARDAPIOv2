@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
     AngularMaterialModule,
     HttpClientModule,
     RouterModule,
+    SlickCarouselModule
   ],
   exports: [
   ],

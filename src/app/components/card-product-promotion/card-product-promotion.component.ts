@@ -12,6 +12,12 @@ export class CardProductPromotionComponent implements OnInit {
 
   faArrowLeft = faArrowLeft;
   productsOnSale: any[] = [];
+  slideConfig = {
+    "slidesToShow": 3, 
+    "slidesToScroll": 1,
+    "autoplay": true,
+    "autoplaySpeed": 3000
+  };
 
   constructor(
     private cardProduct: CardProductService,
@@ -22,7 +28,7 @@ export class CardProductPromotionComponent implements OnInit {
     // Carregar produtos primeiro
     this.cardProduct.getProducts().subscribe(() => {
       // Depois que os produtos foram carregados, filtrar os produtos em promoção
-      this.productsOnSale = this.cardProduct.filtersaleProdutosEmPromocao();
+      this.productsOnSale = this.cardProduct.filterProductOnSale();
     });
   }
   // this.cardProductService.getProducts().subscribe((data: any[]) => {

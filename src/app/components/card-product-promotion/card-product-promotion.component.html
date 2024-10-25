@@ -1,15 +1,30 @@
-    <div class="card-container">
-      <div *ngFor="let product of productsOnSale" class="card">
-      <img 
-        [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'" 
-        class="card-img-top" 
-        alt="{{ product.name }}"
-      >
-      <div class="card-body">
-        <h5 class="card-title">{{ product.name }}</h5>
-        <p class="card-text"> {{ product.description }}</p>
-        <p class="card-price">R$ {{ product.price }}</p>
-         <!-- <div class="action-container">
+<!-- Código teste 1 <div class="card-container">
+<div *ngIf="productsOnSale.length > 0" class="carousel-container">
+  <ngx-slick-carousel *ngIf="productsOnSale.length > 3" 
+                     [config]="slideConfig" class="card">
+    <ng-container *ngFor="let product of productsOnSale">
+      <div ngxSlickItem class="card">
+        <img [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'"
+             class="card-img-top" alt="{{ product.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <p class="card-price">R$ {{ product.price }}</p>
+        </div>
+      </div>
+    </ng-container>
+  </ngx-slick-carousel>
+</div> -->
+ 
+ <!-- Aqui está o código certo  <div class="card-container">
+  <div *ngFor="let product of productsOnSale" class="card">
+    <img [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'"
+      class="card-img-top" alt="{{ product.name }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text"> {{ product.description }}</p>
+      <p class="card-price">R$ {{ product.price }}</p> -->
+       <!-- <div class="action-container">
             <a href="#" class="btn btn-add">Adicionar 
               <img src="../../../assets/img/icons8-shopping-cart-48.png" id="carrinho" alt="Logo">
             </a>
@@ -20,7 +35,93 @@
                 <a href="#" class="btn">-</a>
               </div>
             </div>
-          </div>  -->
+          </div>   -->
+    <!-- </div>
+  </div>
+</div>  -->
+
+<!-- Código teste 2 <div *ngIf="productsOnSale.length > 0" class="carousel-container">
+  <ngx-slick-carousel *ngIf="productsOnSale.length > 3" 
+                     [config]="slideConfig">
+    <ng-container *ngFor="let product of productsOnSale">
+      <div ngxSlickItem class="card">
+        <img [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'"
+             class="card-img-top" alt="{{ product.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <p class="card-price">R$ {{ product.price }}</p>
+        </div>
+      </div>
+    </ng-container>
+  </ngx-slick-carousel>
+
+  <div *ngIf="productsOnSale.length <= 3" class="card-container">
+    <div *ngFor="let product of productsOnSale" class="card">
+      <img [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'"
+           class="card-img-top" alt="{{ product.name }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <p class="card-price">R$ {{ product.price }}</p>
       </div>
     </div>
   </div>
+</div> -->
+<!-- <div class="card-container">
+  <ngx-slick-carousel class="carousel" [config]="slideConfig">
+    <div ngxSlickItem *ngFor="let product of productsOnSale" class="card">
+      <img [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'"
+           class="card-img-top" alt="{{ product.name }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <p class="card-price">R$ {{ product.price }}</p>
+      </div>
+    </div>
+  </ngx-slick-carousel>
+</div> -->
+
+<div id="productCarousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="card-container">
+        <div *ngFor="let product of productsOnSale | slice:0:3" class="card">
+          <img [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'"
+            class="card-img-top" alt="{{ product.name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+            <p class="card-price">R$ {{ product.price }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-item" *ngIf="productsOnSale.length > 3">
+      <div class="card-container">
+        <div *ngFor="let product of productsOnSale | slice:3:6" class="card">
+          <img [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'"
+            class="card-img-top" alt="{{ product.name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+            <p class="card-price">R$ {{ product.price }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Adicione mais divs carousel-item conforme necessário -->
+  </div>
+
+  <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
