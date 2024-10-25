@@ -12,34 +12,26 @@ export class CardProductPromotionComponent implements OnInit {
 
   faArrowLeft = faArrowLeft;
   productsOnSale: any[] = [];
-  slideConfig = {
-    "slidesToShow": 3, 
-    "slidesToScroll": 1,
-    "autoplay": true,
-    "autoplaySpeed": 3000
-  };
+  groupedProducts: any[] = [];
 
-  constructor(
-    private cardProduct: CardProductService,
-    private router: Router
-  ) { }
+  constructor(private cardProductService: CardProductService) {}
 
-  ngOnInit() {
+  ngOnInit() {   
     // Carregar produtos primeiro
-    this.cardProduct.getProducts().subscribe(() => {
+    this.cardProductService.getProducts().subscribe(() => {
       // Depois que os produtos foram carregados, filtrar os produtos em promoção
-      this.productsOnSale = this.cardProduct.filterProductOnSale();
+      this.productsOnSale = this.cardProductService.filterProductOnSale();
+      this.groupedProducts = this.groupProducts(this.productsOnSale, 3);
     });
   }
-  // this.cardProductService.getProducts().subscribe((data: any[]) => {
-  //   this.productsCards = data;
-  // });
-  // this.loadProducts();
-  // loadProducts() {
-  //   this.card. getFilterProductsOnSale().subscribe(data => {
-  //     this.productsOnSale = data; 
-  //   });
-  // }
+
+  groupProducts(products: any[], groupSize: number): any[] {
+    let groups = [];
+    for (let i = 0; i < products.length; i += groupSize) {
+      groups.push(products.slice(i, i + groupSize));
+    }
+    return groups;
+  }
 }
 
 
