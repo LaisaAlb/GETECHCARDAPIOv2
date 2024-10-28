@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CardProductService } from '../../services/card.product.service';
+import { CardProductService } from '../../../services/card.product.service'; 
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router'; 
-import { Product } from '../../interfaces/products';
+import { Product } from '../../../interfaces/products'; 
 
 @Component({
   selector: 'app-card-list',

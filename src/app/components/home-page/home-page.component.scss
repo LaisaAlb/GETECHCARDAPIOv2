@@ -9,34 +9,12 @@
   justify-content: space-between;
 }
 
-.left-container {
-  width: 100%;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .top-div {
   width: 100%;
 }
 
 .footer-div {
   width: 100%;
-}
-
-.carousel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  padding: 10px;
-  margin-top: 0;
-
-  @media (max-width: 768px) {
-    height: auto;
-  }
 }
 
 .card-product-container {
@@ -59,13 +37,11 @@
   .nextButton{
     position: relative;
     margin-left: 20px;
-    margin-right: 0;
-    display: inline-block;
     align-self: center;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 350px) {
   .card-product-container {
     display: flex;
     flex-direction: column;

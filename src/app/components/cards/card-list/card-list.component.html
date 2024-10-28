@@ -1,0 +1,33 @@
+<button (click)="previous()" class="previousButton">
+  <fa-icon [icon]="faArrowLeft" class="faArrowLeft"></fa-icon>
+  Voltar
+</button>
+
+<div class="card mb-3" style="max-width: 540px;" *ngFor="let product of productsCards">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'"
+        class="img-fluid" alt="{{ product.name }}">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <p class="card-text"><small class="text-body-secondary">{{ product.price | currency:'BRL' : 'symbol' : '1.2-2'
+            }}</small></p>
+        <!-- <div class="action-container">
+          <a href="#" class="btn btn-add">Adicionar 
+            <img src="../../../assets/img/icons8-shopping-cart-48.png" id="carrinho" alt="Logo">
+          </a>
+          <div class="quantity-container">
+            <p class="card-text quantity-label">Quantidade:</p>
+            <div class="quantity-controls">
+              <a href="#" class="btn">+</a> 
+              <a href="#" class="btn">-</a>
+            </div>
+          </div>
+        </div>  -->
+      </div>
+    </div>
+  </div>
+</div>

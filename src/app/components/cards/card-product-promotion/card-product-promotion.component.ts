@@ -1,4 +1,4 @@
-import { CardProductService } from './../../services/card.product.service';
+import { CardProductService } from '../../../services/card.product.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
