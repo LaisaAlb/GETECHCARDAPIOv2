@@ -34,4 +34,7 @@ export class CardListComponent implements OnInit {
       this.productsCards = data; 
     });
   }
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

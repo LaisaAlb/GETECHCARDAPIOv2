@@ -1,15 +1,14 @@
 <div class="card mb-3" style="max-width: 540px;" *ngFor="let product of productsOnSale | slice:0:3">
   <div class="row g-0">
-    <div class="col-md-4">
+    <div class="col-12 col-md-4"> <!-- Altera para col-12 em telas menores -->
       <img [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'"
         class="img-fluid" alt="{{ product.name }}">
     </div>
-    <div class="col-md-8">
+    <div class="col-12 col-md-8"> <!-- Altera para col-12 em telas menores -->
       <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="card-text">{{ product.description }}</p>
-        <p class="card-text"><small class="text-body-secondary">{{ product.price | currency:'BRL' : 'symbol' : '1.2-2'
-            }}</small></p>
+        <p class="card-text"><small class="text-body-secondary">{{ product.price | currency:'BRL' : 'symbol' : '1.2-2'}} </small></p>
       </div>
     </div>
   </div>
