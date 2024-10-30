@@ -11,6 +11,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CardProductPromotionComponent } from './cards/card-product-promotion/card-product-promotion.component';
 import { CardListPromotionComponent } from './cards/card-list-promotion/card-list-promotion.component';
+import { ProductCartComponent } from './product-cart/product-cart.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CardListPromotionComponent } from './cards/card-list-promotion/card-lis
     HomePageComponent,
   
     CardProductPromotionComponent,
-        CardListPromotionComponent
+        CardListPromotionComponent,
+        ProductCartComponent
   ],
   imports: [
     CommonModule,

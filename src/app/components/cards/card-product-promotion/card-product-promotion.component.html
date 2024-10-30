@@ -1,14 +1,27 @@
-<div class="card mb-3" style="max-width: 540px;" *ngFor="let product of productsOnSale | slice:0:3">
+<div class="card mb-3" style="max-width: 540px;" *ngFor="let product of productsOnSale | slice :0:3; let i = index">
   <div class="row g-0">
-    <div class="col-12 col-md-4"> <!-- Altera para col-12 em telas menores -->
+    <div class="col-md-4">
       <img [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'"
         class="img-fluid" alt="{{ product.name }}">
     </div>
-    <div class="col-12 col-md-8"> <!-- Altera para col-12 em telas menores -->
+    <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="card-text">{{ product.description }}</p>
-        <p class="card-text"><small class="text-body-secondary">{{ product.price | currency:'BRL' : 'symbol' : '1.2-2'}} </small></p>
+        <p class="card-text"><small>{{ product.price | currency:'BRL' : 'symbol' : '1.2-2' }}</small></p>
+        <div class="action-container">
+        <a href="#" class="btn btn-add">Adicionar 
+          <img src="../../../../assets/img/shopping-cart.png" id="carrinho" alt="Logo">
+        </a>
+        <div class="quantity-container">
+          <p class="card-text quantity-label">Quantidade:</p>
+          <div class="quantity-controls">
+            <a (click)="increaseQuantity(i)" class="btn">+</a> 
+            <span class="resulQuantity">{{ quantities[i] }}</span>
+            <a (click)="decreaseQuantity(i)" class="btn">-</a>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
   </div>
