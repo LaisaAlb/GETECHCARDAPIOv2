@@ -3,23 +3,22 @@
   Voltar
 </button>
 
-<div class="row">
-  <div class="col-md-6" *ngFor="let product of productsCards">
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'" class="img-fluid" alt="{{ product.name }}">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">{{ product.name }}</h5>
-            <p class="card-text">{{ product.description }}</p>
-            <p class="card-text"><small>{{ product.price | currency:'BRL' : 'symbol' : '1.2-2' }}</small></p>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="card-container">
+  <div *ngFor="let product of productsCards" class="card">
+      <mat-card>
+          <mat-card-content class="card-content">
+              <img mat-card-image
+                  [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'"
+                  class="img-fluid" alt="{{ product.name }}">
+              <div class="card-item">
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  <p class="card-text">{{ product.description }}</p>
+                  <p class="card-text"><small>{{ product.price | currency:'BRL' : 'symbol' : '1.2-2' }}</small></p>
+              </div>
+          </mat-card-content>
+      </mat-card>
   </div>
 </div>
+
 
 <button (click)="scrollToTop()" class="scrollToTop">Voltar ao topo</button>

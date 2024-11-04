@@ -12,47 +12,92 @@
 .scrollToTop{
     margin-left: 30%;
 }
-.card {
-    background-color: rgb(0, 30, 66);
-    color: #fff;
-    border-color: rgb(0, 21, 63);
-    align-items: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-  .card-body{
-    margin-left: 20px;
-  }
-  .action-cntainer {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .img-fluid{
-    margin: 20px;
-    border-radius: 2px;
-  }
-  
-  @media (max-width: 767px) {
-    .img-fluid{
-      margin: 0px;
-      border-radius: 2px;
-    }
-  }
-  
-  @media(max-width: 365px){
-    .card {
-      padding: 2px; 
-      margin: 2px; 
-      align-items: center;
-    }
-  
-    .card-title {
-      font-size: 0.9rem; 
-    }
-  
-    .card-text {
-      font-size: 0.8rem; 
-      padding: 5px;
-    }
+
+.title {
+  color: #0030ab;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px auto;
+  font-size: 1.8rem;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  margin: 10px; /* Ajuste a margem conforme necessário */
+  color: #FFFFFF;
+  background-color: #010b43;
+  flex: 1 1 200px; /* Ajusta o tamanho mínimo de cada card */
+  max-width: 300px; /* Limita a largura máxima do card */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+}
+
+.card-item {
+  flex: 1;
+  padding: 10px;
+}
+
+img {
+  width: 100px; /* Ajuste conforme necessário */
+  height: auto;
+  margin-right: 10px; /* Espaço entre a imagem e o texto */
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 1.2rem;
   }
 
+  img {
+    width: 80px; /* Reduz a largura da imagem em telas menores */
+  }
+}
+
+@media (max-width: 500px) {
+  .title {
+    font-size: 1rem;
+  }
+
+  .card {
+    flex: 1 1 100%; /* Faz com que o card ocupe 100% da largura em telas muito pequenas */
+    max-width: none; /* Remove a limitação de largura máxima */
+  }
+}
+
+.total {
+  background-color: #003f7a;
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.total-container {
+  width: 100%; 
+  display: flex; 
+  justify-content: space-between; 
+}
+
+.text-itens,
+.text-valor {
+  font-size: 1.5rem;
+  margin: 0; 
+  font-weight: 700; 
+}
