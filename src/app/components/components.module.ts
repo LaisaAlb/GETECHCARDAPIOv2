@@ -11,7 +11,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CardProductPromotionComponent } from './cards/card-product-promotion/card-product-promotion.component';
 import { CardListPromotionComponent } from './cards/card-list-promotion/card-list-promotion.component';
-import { FilterCardsProductComponent } from './filter-buttons/filter-buttons.component';
+import { FilterButtonComponent } from './filter-buttons/filter-buttons.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { FilterCardsProductComponent } from './filter-buttons/filter-buttons.com
     HomePageComponent,
     CardProductPromotionComponent,
     CardListPromotionComponent,
-    FilterCardsProductComponent
+    FilterButtonComponent
+
   ],
   imports: [
     CommonModule,
@@ -33,7 +34,7 @@ import { FilterCardsProductComponent } from './filter-buttons/filter-buttons.com
     CardListComponent,
     HomePageComponent,
     CardProductPromotionComponent,
-    FilterCardsProductComponent
+    FilterButtonComponent
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA], 

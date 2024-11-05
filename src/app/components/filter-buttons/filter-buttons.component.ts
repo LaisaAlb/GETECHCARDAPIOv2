@@ -7,7 +7,7 @@ import { IGrupo } from '../../interfaces/group';
   templateUrl: './filter-buttons.component.html',
   styleUrls: ['./filter-buttons.component.scss']
 })
-export class FilterCardsProductComponent implements OnInit {
+export class FilterButtonComponent implements OnInit {
 
   categorias: IGrupo[] = [];
   categoriasFiltradas: IGrupo[] = [];
