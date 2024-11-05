@@ -13,6 +13,7 @@ export class CardProductPromotionComponent implements OnInit {
   faArrowLeft = faArrowLeft;
   productsOnSale: any[] = [];
   groupedProducts: any[] = [];
+  quantities: { [key: number]: number } = {};
 
   constructor(private cardProductService: CardProductService) {}
 
@@ -22,8 +23,22 @@ export class CardProductPromotionComponent implements OnInit {
       // Depois que os produtos foram carregados, filtrar os produtos em promoção
       this.productsOnSale = this.cardProductService.filterProductOnSale();
       this.groupedProducts = this.groupProducts(this.productsOnSale, 3);
+      this.productsOnSale.forEach((_, index) => {
+        this.quantities[index] = 0; // Inicializa a quantidade como 0
+      });
     });
   }
+
+  increaseQuantity(index: number) {
+    this.quantities[index]++;
+  }
+
+  decreaseQuantity(index: number) {
+    if (this.quantities[index] = 1) {
+      this.quantities[index]--;
+    }
+  }
+  
 
   groupProducts(products: any[], groupSize: number): any[] {
     let groups = [];
@@ -32,6 +47,7 @@ export class CardProductPromotionComponent implements OnInit {
     }
     return groups;
   }
+
 }
 
 
