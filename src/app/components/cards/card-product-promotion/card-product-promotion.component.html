@@ -1,5 +1,5 @@
 <div class="card-container">
-  <div *ngFor="let product of productsOnSale | slice:0:4;"  class="card">
+  <div *ngFor="let product of productsOnSale | slice:0:4 | filter: search"  class="card">
       <mat-card>
           <mat-card-content class="card-content">
               <img mat-card-image

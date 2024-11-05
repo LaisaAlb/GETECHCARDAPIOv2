@@ -14,6 +14,7 @@ export class CardProductPromotionComponent implements OnInit {
   productsOnSale: any[] = [];
   groupedProducts: any[] = [];
   quantities: { [key: number]: number } = {};
+search: any;
 
   constructor(private cardProductService: CardProductService) {}
 
