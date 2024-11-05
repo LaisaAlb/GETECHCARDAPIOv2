@@ -1,0 +1,20 @@
+<!-- <mat-card *ngFor="let category of categoriasFiltradas">
+    <mat-card-content>
+      Exibe o nome (descricao) de cada categoria
+      <div>{{ category.descricao }}</div>
+    </mat-card-content>
+  </mat-card>
+   -->
+
+
+<!-- Exibindo as categorias filtradas -->
+<!-- src/app/components/filter-buttons/filter-buttons.component.html -->
+<mat-card *ngFor="let category of categoriasFiltradas">
+    <mat-card-content>
+      Exibe a descrição da categoria associada ao grupo
+      <div>{{ category.grupo.descricao }}</div>
+    </mat-card-content>
+  </mat-card>
+  
+  
+
