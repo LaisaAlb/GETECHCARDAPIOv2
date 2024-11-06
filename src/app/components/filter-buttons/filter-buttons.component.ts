@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core'; 
-import { CardProductService } from '../../services/card.product.service';
+import { Component, OnInit } from '@angular/core';
+import { CategoryService } from '../../services/category.service';
 import { IGrupo } from '../../interfaces/group';
+import { Product } from '../../interfaces/products';
 
 @Component({
   selector: 'app-filter-buttons',
@@ -10,40 +11,44 @@ import { IGrupo } from '../../interfaces/group';
 export class FilterButtonComponent implements OnInit {
 
   categorias: IGrupo[] = [];
-  categoriasFiltradas: IGrupo[] = [];
-  
-  constructor(private cardService: CardProductService) {}
+  produtos: Product[] = [];
+  categoriaSelecionada: number | null = null;  // Variável para armazenar a categoria selecionada
+  mostrarProdutos: boolean = false;  // Controle de visibilidade dos produtos
 
-  ngOnInit() {
-    // Carregar as categorias do serviço
-    this.cardService.getObterCategoria().subscribe(
-      (data: IGrupo[]) => {
-        this.categorias = data;  // Armazena as categorias no array categorias
-        this.categoriasFiltradas = data; // Inicialmente, as categorias filtradas são todas
+  constructor(private categoryService: CategoryService) {}
+
+  ngOnInit(): void {
+    this.carregarCategorias();
+  }
+
+  // Carregar as categorias no início
+  carregarCategorias(): void {
+    this.categoryService.getCategorias().subscribe({
+      next: (categorias) => {
+        this.categorias = categorias;
       },
-      error => {
-        console.error('Erro ao buscar categorias', error);
+      error: (err) => {
+        console.error('Erro ao carregar categorias:', err);
       }
-    );
+    });
   }
 
-  // Método para filtrar categorias por nome ou id
-  // Modificado para receber um evento de input com o tipo correto
-  filtrarCategorias(nome: string | null, id: number | null) {
-    if (!nome && !id) {
-      // Se não passar nome nem id, reseta as categorias filtradas
-      this.categoriasFiltradas = this.categorias;
-    } else {
-      this.categoriasFiltradas = this.categorias.filter(categoria => 
-        (nome && categoria.descricao === nome) || 
-        (id && categoria.id === id)
-      );
-    }
-  }
+  // Carregar os produtos de acordo com a categoria selecionada
+  carregarProdutos(categoriaId: number): void {
+    this.categoriaSelecionada = categoriaId;
+    this.mostrarProdutos = true;  // Ativar a exibição dos produtos ao clicar no botão da categoria
   
-  // Adicionando o tipo de evento ao método de filtro
-  onInputChange(event: Event) {
-    const input = event.target as HTMLInputElement; // Aqui, afirmamos que o evento é de um HTMLInputElement
-    this.filtrarCategorias(input.value, null); // Chamando filtrarCategorias com o valor do input
+    // Chama o serviço para obter os produtos da categoria
+    this.categoryService.getProdutosPorCategoria(categoriaId).subscribe({
+      next: (data) => {
+        console.log('Resposta da API:', data);  // Verifique a resposta
+        this.produtos = data || [];   // Agora usa diretamente `data` que é um array de produtos
+        console.log('Produtos carregados para a categoria:', categoriaId);
+      },
+      error: (err) => {
+        console.error('Erro ao carregar produtos:', err);
+        this.produtos = [];  // Limpa a lista de produtos em caso de erro
+      }
+    });
   }
 }

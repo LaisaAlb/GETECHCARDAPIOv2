@@ -1,5 +1,8 @@
+import { Product } from "./products";
+
 export interface IGrupo {
-grupo: any;
-    id: number; 
+    id: number;
     descricao: string;
-}
+    produtos: Product[];  
+  }
+  

@@ -8,8 +8,10 @@ import { IGrupo } from '../interfaces/group';
   providedIn: 'root'
 })
 export class CardProductService {
-  private apiUrl = 'http://8b38091fc43d.sn.mynetname.net:2001/dev/cheff/api/public/api/product';
-  // private apiUrl = 'http://10.0.1.135:8080'; 
+  // private apiUrl = 'http://8b38091fc43d.sn.mynetname.net:2001/dev/cheff/api/public/api/product';
+
+  private urlProdutos = 'http://10.0.1.135:8080'; 
+
   private products: Product[] = [];
   productsOnSale: Product[] = [];
   categoria: IGrupo[] = [];
@@ -22,7 +24,7 @@ export class CardProductService {
       return of(this.products);
     }
   
-    return this.http.get<any[]>(`${this.apiUrl}/produtos`).pipe(
+    return this.http.get<any[]>(`${this.urlProdutos}/produtos`).pipe(
       tap(data => this.products = data) 
     );
   }
@@ -32,13 +34,5 @@ export class CardProductService {
     // console.log("Está retornando")
     return produtosEmPromocao;
   }
-
-  getObterCategoria(): Observable<IGrupo[]> {
-    return this.http.get<IGrupo[]>(`${this.apiUrl}/grupo`).pipe(
-      map(data => data.filter(categoria => categoria.descricao)), // Filtrando categorias com nome definido
-      tap(data => this.categoria = data) // Armazenando as categorias no array categoria
-    );
-  }
-  
-  
+ 
 }
