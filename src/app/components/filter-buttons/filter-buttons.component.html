@@ -5,16 +5,3 @@
       {{ categoria.descricao }}
     </button>
   </div>
-
-  <!-- Exibição dos produtos -->
-  <div class="produtos" *ngIf="mostrarProdutos">  
-    <!-- Exibe produtos apenas se mostrarProdutos for true -->
-    <div *ngIf="produtos.length === 0">Nenhum produto encontrado para esta categoria.</div>
-    
-    <div *ngFor="let produto of produtos">
-      <div>{{ produto.name }}</div>
-      <div>{{ produto.price | currency }}</div>
-      <div>{{ produto.promocao === 'S' ? 'Em promoção' : 'Sem promoção' }}</div>
-    </div>
-  </div>  
-</div>

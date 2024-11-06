@@ -1,0 +1,30 @@
+<div class="button">
+    <button (click)="previous()" class="previousButton">
+        <fa-icon [icon]="faArrowLeft" class="faArrowLeft"></fa-icon>
+        Voltar
+    </button>
+</div>
+<div class="container">
+    <h2>Produtos da Categoria</h2>
+  
+    <!-- Exibição dos produtos -->
+    <div class="produtos" *ngIf="produtos.length > 0">  
+      <div *ngFor="let produto of produtos" class="card">
+        <mat-card>
+          <mat-card-content class="card-content">
+            <div class="card-item">
+              <h5 class="card-title">{{ produto.name }}</h5>
+              <p class="card-text">{{ produto.description }}</p>
+              <p class="card-text"><small>{{ produto.price | currency:'BRL' : 'symbol' : '1.2-2' }}</small></p>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>  
+  
+    <!-- Caso não haja produtos -->
+    <div *ngIf="produtos.length === 0">
+      Nenhum produto encontrado para esta categoria.
+    </div>
+  </div>
+  

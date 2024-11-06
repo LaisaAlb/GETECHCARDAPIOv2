@@ -1,5 +1,6 @@
 import { IGrupo } from "./group";
 export interface Product {
+imagem: any;
 description: any;
     promocao: string;
     id: number;

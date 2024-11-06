@@ -12,6 +12,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CardProductPromotionComponent } from './cards/card-product-promotion/card-product-promotion.component';
 import { CardListPromotionComponent } from './cards/card-list-promotion/card-list-promotion.component';
 import { FilterButtonComponent } from './filter-buttons/filter-buttons.component';
+import { PageProductFilteredComponent } from './page-product-filtered/page-product-filtered.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FilterButtonComponent } from './filter-buttons/filter-buttons.component
     HomePageComponent,
     CardProductPromotionComponent,
     CardListPromotionComponent,
-    FilterButtonComponent
+    FilterButtonComponent,
+    PageProductFilteredComponent
 
   ],
   imports: [
