@@ -41,4 +41,13 @@ export class FilterButtonComponent implements OnInit {
   carregarProdutos(categoriaId: number): void {
     this.router.navigate([`/produtos/${categoriaId}`]);
   }
+
+  next() {
+    this.router.navigate(['/listPromotion']);
+  }
+  nextList(){
+    this.router.navigate(['/list'])
+  }
+  
 }
+

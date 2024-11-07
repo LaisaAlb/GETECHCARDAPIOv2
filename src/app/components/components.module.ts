@@ -1,7 +1,6 @@
 import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CardProductComponent } from './cards/card-product/card-product.component';
 import { CardListComponent } from './cards/card-list/card-list.component'; 
 import { HttpClientModule } from '@angular/common/http';
 import { CardProductService } from '../services/card.product.service'
@@ -16,7 +15,6 @@ import { PageProductFilteredComponent } from './page-product-filtered/page-produ
 
 @NgModule({
   declarations: [
-    CardProductComponent,
     CardListComponent,
     HomePageComponent,
     CardProductPromotionComponent,
@@ -32,7 +30,6 @@ import { PageProductFilteredComponent } from './page-product-filtered/page-produ
     FontAwesomeModule
 ],
   exports: [
-    CardProductComponent,
     CardListComponent,
     HomePageComponent,
     CardProductPromotionComponent,

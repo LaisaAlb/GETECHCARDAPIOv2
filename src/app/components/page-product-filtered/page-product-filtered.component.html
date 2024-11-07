@@ -5,11 +5,9 @@
     </button>
 </div>
 <div class="container">
-    <h2>Produtos da Categoria</h2>
-  
-    <!-- Exibição dos produtos -->
-    <div class="produtos" *ngIf="produtos.length > 0">  
-      <div *ngFor="let produto of produtos" class="card">
+  <!-- Exibição dos produtos -->
+  <div class="produtos" *ngIf="produtos.length > 0">  
+    <div *ngFor="let produto of produtos" class="card">
         <mat-card>
           <mat-card-content class="card-content">
             <img mat-card-image

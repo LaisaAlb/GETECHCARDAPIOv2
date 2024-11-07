@@ -20,5 +20,6 @@ export class CategoryService {
   getProdutosPorCategoria(categoriaId: number): Observable<any> {
     return this.http.get<any>(`http://10.0.1.135:8080/produtos/${categoriaId}`);  // Usando categoriaId na URL
   }
+
   
 }

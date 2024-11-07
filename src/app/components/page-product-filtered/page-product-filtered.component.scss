@@ -170,6 +170,7 @@ button {
     font-size: 15px;
     padding: 10px;
     margin-left: 20px;
+    margin-top: 10px;
 }
 
 button:hover {
@@ -183,4 +184,11 @@ button:hover {
 
 .produtos {
     margin-top: 20px;
+}
+.products {
+  color: #0030ab;
+  font-family: "Rethink Sans", sans-serif;
+  font-weight: bold;
+  margin-top: 50px;
+  text-shadow: 2px 1px 2px rgba(2, 37, 75, 0.7);
 }

@@ -1,7 +1,13 @@
 <div class="container">
   <!-- Botões de categorias -->
   <div class="categorias">
-    <button *ngFor="let categoria of categorias" (click)="carregarProdutos(categoria.id)" [routerLink]="['/']">
-      {{ categoria.descricao }}
-    </button>
+    <mat-list role="list">
+      <mat-list-item *ngFor="let categoria of categorias" (click)="carregarProdutos(categoria.id)" [routerLink]="['/']">
+        {{ categoria.descricao }}
+      </mat-list-item>
+      <mat-list-item (click)="nextList()" class="nextButtonProduct" routerLink="/list">
+        Cardápio Completo
+      </mat-list-item>
+    </mat-list>
+  </div>
 </div>
