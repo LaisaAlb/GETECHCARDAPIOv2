@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../services/category.service';
 import { IGrupo } from '../../interfaces/group';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-filter-buttons',
@@ -11,15 +12,21 @@ import { Router } from '@angular/router';
 export class FilterButtonComponent implements OnInit {
 
   categorias: IGrupo[] = [];
-  categoriaSelecionada: number | null = null;  // Variável para armazenar a categoria selecionada
 
   constructor(private categoryService: CategoryService, private router: Router) {}
 
   ngOnInit(): void {
     this.carregarCategorias();
+
+    // Escuta as mudanças de rota
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      // Sempre que a navegação terminar, recarrega as categorias
+      this.carregarCategorias();
+    });
   }
 
-  // Carregar as categorias no início
   carregarCategorias(): void {
     this.categoryService.getCategorias().subscribe({
       next: (categorias) => {
@@ -31,9 +38,7 @@ export class FilterButtonComponent implements OnInit {
     });
   }
 
-  // Navegar para a página de produtos filtrados
   carregarProdutos(categoriaId: number): void {
-    // Navegar para a página de produtos filtrados
-    this.router.navigate([`/produtos/${categoriaId}`]);  // Navegar para a URL 'produtos/:categoriaId'
+    this.router.navigate([`/produtos/${categoriaId}`]);
   }
 }

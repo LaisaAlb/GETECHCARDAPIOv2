@@ -1,7 +1,7 @@
 <div class="container">
   <!-- Botões de categorias -->
   <div class="categorias">
-    <button *ngFor="let categoria of categorias" (click)="carregarProdutos(categoria.id)">
+    <button *ngFor="let categoria of categorias" (click)="carregarProdutos(categoria.id)" [routerLink]="['/']">
       {{ categoria.descricao }}
     </button>
   </div>
