@@ -19,11 +19,11 @@
 }
 
 .card {
-  margin: 10px; /* Ajuste a margem conforme necessário */
+  margin: 10px; 
   color: #FFFFFF;
   background-color: #010b43;
-  flex: 1 1 200px; /* Ajusta o tamanho mínimo de cada card */
-  max-width: 300px; /* Limita a largura máxima do card */
+  flex: 1 1 200px; 
+  max-width: 300px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -35,15 +35,6 @@
 .card-item {
   flex: 1;
   padding: 10px;
-}
-.button{
-  border: none;
-  font-size: 15px; 
-  color: #fff;
-  border-radius: 5px;
-  padding: 10px 15px; 
-  margin: 0 10px; 
-  cursor: pointer; 
 }
 img {
   width: 100px; 
@@ -96,3 +87,14 @@ img {
   font-weight: 700; 
 }
 
+.previousButton{
+  border: none;
+  background-color: #001f6ce1;
+  font-size: 15px; 
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 0 10px; 
+  cursor: pointer; 
+  margin-top: 10px;
+}
