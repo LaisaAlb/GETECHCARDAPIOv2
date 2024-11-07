@@ -12,6 +12,9 @@
       <div *ngFor="let produto of produtos" class="card">
         <mat-card>
           <mat-card-content class="card-content">
+            <img mat-card-image
+                   [src]="produto.imagem ? 'data:image/jpeg;base64,' + produto.imagem : '../../../assets/img/imgteste.png'"
+                   class="img-fluid" alt="{{ produto.name }}">
             <div class="card-item">
               <h5 class="card-title">{{ produto.name }}</h5>
               <p class="card-text">{{ produto.description }}</p>
