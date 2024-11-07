@@ -19,11 +19,11 @@
 }
 
 .card {
-  margin: 10px; /* Ajuste a margem conforme necessário */
+  margin: 10px; 
   color: #FFFFFF;
   background-color: #010b43;
-  flex: 1 1 200px; /* Ajusta o tamanho mínimo de cada card */
-  max-width: 300px; /* Limita a largura máxima do card */
+  flex: 1 1 200px;
+  max-width: 300px; 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -38,9 +38,9 @@
 }
 
 img {
-  width: 100px; /* Ajuste conforme necessário */
+  width: 100px; 
   height: auto;
-  margin-right: 10px; /* Espaço entre a imagem e o texto */
+  margin-right: 10px; 
 }
 
 @media (max-width: 767px) {
@@ -49,7 +49,7 @@ img {
   }
 
   img {
-    width: 80px; /* Reduz a largura da imagem em telas menores */
+    width: 80px; 
   }
 }
 
@@ -59,8 +59,8 @@ img {
   }
 
   .card {
-    flex: 1 1 100%; /* Faz com que o card ocupe 100% da largura em telas muito pequenas */
-    max-width: none; /* Remove a limitação de largura máxima */
+    flex: 1 1 100%; 
+    max-width: none;
   }
 }
 
