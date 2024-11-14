@@ -5,12 +5,13 @@
   </button>
 </div>
 
+<!-- Exibe o spinner enquanto isLoading estiver true -->
 <div *ngIf="isLoading" class="loading-spinner">
   <mat-spinner></mat-spinner>
 </div>
+
+<!-- Exibe os produtos quando isLoading for false -->
 <div *ngIf="!isLoading" class="container">
-
-
   <div class="container">
     <!-- Exibição dos produtos -->
     <div class="produtos" *ngIf="produtos.length > 0">
@@ -32,7 +33,6 @@
     </div>
 
   </div>
-
 
   <!-- Caso não haja produtos -->
   <div *ngIf="produtos.length === 0">

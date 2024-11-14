@@ -16,6 +16,7 @@ export class PageProductFilteredComponent implements OnInit {
   produtos: Product[] = [];
   categoriaId: number | null = null;
   faArrowLeft = faArrowLeft;
+  isLoading = true; // Inicialmente true para mostrar o spinner
 
   constructor(
     private route: ActivatedRoute, 
@@ -24,42 +25,40 @@ export class PageProductFilteredComponent implements OnInit {
     private cdr: ChangeDetectorRef
   ) {}
 
-  isLoading = true;
-
-ngOnInit(): void {
-  this.route.paramMap.subscribe(params => {
-    this.categoriaId = +params.get('categoriaId')!;
-    this.carregarProdutos();
-  });
-}
-
-carregarProdutos(): void {
-  if (this.categoriaId !== null) {
-    this.isLoading = true;
-    this.categoryService.getProdutosPorCategoria(this.categoriaId).subscribe({
-      next: (data) => {
-        this.produtos = data || [];
-        this.isLoading = false;
-        this.cdr.markForCheck();
-      },
-      error: (err) => {
-        console.error('Erro ao carregar produtos:', err);
-        this.produtos = [];
-        this.isLoading = false;
-      }
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.categoriaId = +params.get('categoriaId')!;
+      this.carregarProdutos();
     });
   }
-}
+
+  carregarProdutos(): void {
+    if (this.categoriaId !== null) {
+      this.isLoading = true;
+      this.categoryService.getProdutosPorCategoria(this.categoriaId).subscribe({
+        next: (data) => {
+          this.produtos = data || [];
+          this.isLoading = false;
+          this.cdr.markForCheck(); // Marca para verificação de mudanças
+        },
+        error: (err) => {
+          console.error('Erro ao carregar produtos:', err);
+          this.produtos = [];
+          this.isLoading = false;
+          this.cdr.markForCheck(); // Marca para verificação de mudanças em caso de erro
+        }
+      });
+    }
+  }
 
   previous() {
     this.router.navigate(['']);
   }
 
-  // Método para forçar o recarregamento da rota (recarregar a página ao trocar de categoria)
   recarregarCategoria(): void {
     this.router.navigate([`/produtos/${this.categoriaId}`]).then(() => {
-      // Após navegar para a mesma página, força o componente a recarregar os dados
       this.carregarProdutos();
     });
   }
+
 }
