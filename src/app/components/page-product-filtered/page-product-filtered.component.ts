@@ -24,29 +24,32 @@ export class PageProductFilteredComponent implements OnInit {
     private cdr: ChangeDetectorRef
   ) {}
 
-  ngOnInit(): void {
-    // Captura o parâmetro da rota (categoriaId)
-    this.route.paramMap.subscribe(params => {
-      this.categoriaId = +params.get('categoriaId')!;
-      this.carregarProdutos();  // Chama o método para carregar os produtos
+  isLoading = true;
+
+ngOnInit(): void {
+  this.route.paramMap.subscribe(params => {
+    this.categoriaId = +params.get('categoriaId')!;
+    this.carregarProdutos();
+  });
+}
+
+carregarProdutos(): void {
+  if (this.categoriaId !== null) {
+    this.isLoading = true;
+    this.categoryService.getProdutosPorCategoria(this.categoriaId).subscribe({
+      next: (data) => {
+        this.produtos = data || [];
+        this.isLoading = false;
+        this.cdr.markForCheck();
+      },
+      error: (err) => {
+        console.error('Erro ao carregar produtos:', err);
+        this.produtos = [];
+        this.isLoading = false;
+      }
     });
   }
-
-  // Carregar os produtos de acordo com a categoria selecionada
-  carregarProdutos(): void {
-    if (this.categoriaId !== null) {
-      this.categoryService.getProdutosPorCategoria(this.categoriaId).subscribe({
-        next: (data) => {
-          this.produtos = data || [];
-          this.cdr.markForCheck()
-        },
-        error: (err) => {
-          console.error('Erro ao carregar produtos:', err);
-          this.produtos = [];
-        }
-      });
-    }
-  }
+}
 
   previous() {
     this.router.navigate(['']);

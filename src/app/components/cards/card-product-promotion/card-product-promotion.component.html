@@ -2,9 +2,9 @@
   <div *ngFor="let product of productsOnSale | slice:0:3"  class="card">
       <mat-card>
           <mat-card-content class="card-content">
-              <img mat-card-image
-                   [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'"
-                   class="img-fluid" alt="{{ product.name }}">
+            <img mat-card-image
+            [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'"
+            class="img-fluid" alt="{{ product.name }}" loading="lazy">
               <div class="card-item">
                   <h5 class="card-title">{{ product.name }}</h5>
                   <p class="card-text">{{ product.description }}</p>

@@ -16,6 +16,7 @@ export class CardProductPromotionComponent implements OnInit {
   quantities: { [key: number]: number } = {};
 search: any;
 
+
   constructor(private cardProductService: CardProductService) {}
 
   ngOnInit() {   

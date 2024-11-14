@@ -1,18 +1,26 @@
 <div class="button">
-    <button (click)="previous()" class="previousButton">
-        <fa-icon [icon]="faArrowLeft" class="faArrowLeft"></fa-icon>
-        Voltar
-    </button>
+  <button (click)="previous()" class="previousButton">
+    <fa-icon [icon]="faArrowLeft" class="faArrowLeft"></fa-icon>
+    Voltar
+  </button>
 </div>
-<div class="container">
-  <!-- Exibição dos produtos -->
-  <div class="produtos" *ngIf="produtos.length > 0">  
-    <div *ngFor="let produto of produtos" class="card">
+
+<div *ngIf="isLoading" class="loading-spinner">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!isLoading" class="container">
+
+
+  <div class="container">
+    <!-- Exibição dos produtos -->
+    <div class="produtos" *ngIf="produtos.length > 0">
+      <div *ngFor="let produto of produtos" class="card">
         <mat-card>
           <mat-card-content class="card-content">
             <img mat-card-image
-                   [src]="produto.imagem ? 'data:image/jpeg;base64,' + produto.imagem : '../../../assets/img/imgteste.png'"
-                   class="img-fluid" alt="{{ produto.name }}">
+              [src]="produto.imagem ? 'data:image/jpeg;base64,' + produto.imagem : '../../../assets/img/imgteste.png'"
+              class="img-fluid" alt="{{ produto.name }}" loading="lazy">
+
             <div class="card-item">
               <h5 class="card-title">{{ produto.name }}</h5>
               <p class="card-text">{{ produto.description }}</p>
@@ -21,11 +29,13 @@
           </mat-card-content>
         </mat-card>
       </div>
-    </div>  
-  
-    <!-- Caso não haja produtos -->
-    <div *ngIf="produtos.length === 0">
-      Nenhum produto encontrado para esta categoria.
     </div>
+
   </div>
-  
+
+
+  <!-- Caso não haja produtos -->
+  <div *ngIf="produtos.length === 0">
+    Nenhum produto encontrado para esta categoria.
+  </div>
+</div>
