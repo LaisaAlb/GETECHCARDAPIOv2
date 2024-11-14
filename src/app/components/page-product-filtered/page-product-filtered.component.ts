@@ -1,32 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Product } from '../../interfaces/products';
 import { CategoryService } from '../../services/category.service';
-import { ActivatedRoute, Router } from '@angular/router'; 
+import { ActivatedRoute, Router } from '@angular/router';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-page-product-filtered',
   templateUrl: './page-product-filtered.component.html',
-  styleUrls: ['./page-product-filtered.component.scss']
+  styleUrls: ['./page-product-filtered.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PageProductFilteredComponent implements OnInit {
 
   produtos: Product[] = [];
-  categoriaId: number | null = null;  // ID da categoria selecionada
+  categoriaId: number | null = null;
   faArrowLeft = faArrowLeft;
 
   constructor(
     private route: ActivatedRoute, 
     private router: Router, 
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
     // Captura o parâmetro da rota (categoriaId)
     this.route.paramMap.subscribe(params => {
-      // O tipo de `params` é `ParamMap` e tem o método `get` para pegar o parâmetro
-      this.categoriaId = +params.get('categoriaId')!;  // Converte o parâmetro para número e usa o operador de assertividade (if non-null assertion)
-      this.carregarProdutos();  // Carregar produtos após obter o parâmetro
+      this.categoriaId = +params.get('categoriaId')!;
+      this.carregarProdutos();  // Chama o método para carregar os produtos
     });
   }
 
@@ -35,11 +37,12 @@ export class PageProductFilteredComponent implements OnInit {
     if (this.categoriaId !== null) {
       this.categoryService.getProdutosPorCategoria(this.categoriaId).subscribe({
         next: (data) => {
-          this.produtos = data || [];  // Atualiza a lista de produtos
+          this.produtos = data || [];
+          this.cdr.markForCheck()
         },
         error: (err) => {
           console.error('Erro ao carregar produtos:', err);
-          this.produtos = [];  // Limpa a lista de produtos em caso de erro
+          this.produtos = [];
         }
       });
     }
@@ -47,5 +50,13 @@ export class PageProductFilteredComponent implements OnInit {
 
   previous() {
     this.router.navigate(['']);
+  }
+
+  // Método para forçar o recarregamento da rota (recarregar a página ao trocar de categoria)
+  recarregarCategoria(): void {
+    this.router.navigate([`/produtos/${this.categoriaId}`]).then(() => {
+      // Após navegar para a mesma página, força o componente a recarregar os dados
+      this.carregarProdutos();
+    });
   }
 }

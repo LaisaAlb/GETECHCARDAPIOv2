@@ -13,6 +13,7 @@ import { CardListPromotionComponent } from './cards/card-list-promotion/card-lis
 import { FilterButtonComponent } from './filter-buttons/filter-buttons.component';
 import { PageProductFilteredComponent } from './page-product-filtered/page-product-filtered.component';
 
+
 @NgModule({
   declarations: [
     CardListComponent,
@@ -21,13 +22,12 @@ import { PageProductFilteredComponent } from './page-product-filtered/page-produ
     CardListPromotionComponent,
     FilterButtonComponent,
     PageProductFilteredComponent
-
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     RouterModule,
-    FontAwesomeModule
+    FontAwesomeModule,
 ],
   exports: [
     CardListComponent,

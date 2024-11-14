@@ -1,38 +1,36 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { Product } from '../interfaces/products';
 import { IGrupo } from '../interfaces/group';
+
 @Injectable({
   providedIn: 'root'
 })
 export class CardProductService {
-  // private apiUrl = 'http://8b38091fc43d.sn.mynetname.net:2001/dev/cheff/api/public/api/product';
 
-  private urlProdutos = 'http://10.0.1.135:8080'; 
+  private urlProdutos = 'http://localhost:8080'; 
 
   private products: Product[] = [];
   productsOnSale: Product[] = [];
   categoria: IGrupo[] = [];
   
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getProducts(): Observable<any[]> {
+  // Carrega todos os produtos
+  getProducts(): Observable<Product[]> {
     if (this.products.length) {
-      return of(this.products);
+      return of(this.products); // Se já tiver produtos carregados, retorna do cache
     }
   
-    return this.http.get<any[]>(`${this.urlProdutos}/produtos`).pipe(
-      tap(data => this.products = data) 
+    return this.http.get<Product[]>(`${this.urlProdutos}/produtos`).pipe(
+      tap(data => this.products = data)  // Salva os produtos no cache
     );
   }
-  
-  filterProductOnSale(): any[] {
-    const produtosEmPromocao = this.products.filter(produto => produto.promocao === 'S');
-    // console.log("Está retornando")
-    return produtosEmPromocao;
+
+  // Filtra produtos em promoção
+  filterProductOnSale(): Product[] {
+    return this.products.filter(produto => produto.promocao === 'S');
   }
- 
 }

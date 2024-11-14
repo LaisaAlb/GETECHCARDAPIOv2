@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { CardProductService } from '../../../services/card.product.service';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-list-promotion',
   templateUrl: './card-list-promotion.component.html',
-  styleUrl: './card-list-promotion.component.scss'
+  styleUrls: ['./card-list-promotion.component.scss']
 })
 export class CardListPromotionComponent implements OnInit {
 
@@ -14,14 +14,14 @@ export class CardListPromotionComponent implements OnInit {
   productsOnSale: any[] = [];
   groupedProducts: any[] = [];
 
-  constructor(private cardProductService: CardProductService, 
+  constructor(
+    private cardProductService: CardProductService, 
     private router: Router
   ) {}
 
-  ngOnInit() {   
-    // Carregar produtos primeiro
+  ngOnInit() {
+    // Carregar os produtos e depois aplicar o filtro de produtos em promoção
     this.cardProductService.getProducts().subscribe(() => {
-      // Depois que os produtos foram carregados, filtrar os produtos em promoção
       this.productsOnSale = this.cardProductService.filterProductOnSale();
       this.groupedProducts = this.groupProducts(this.productsOnSale, 3);
     });
@@ -34,6 +34,7 @@ export class CardListPromotionComponent implements OnInit {
     }
     return groups;
   }
+
   previous() {
     this.router.navigate(['']);
   }
