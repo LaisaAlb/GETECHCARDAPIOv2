@@ -87,3 +87,21 @@ img {
   margin: 0; 
   font-weight: 700; 
 }
+.price-container {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.5;
+}
+
+.card-text-price {
+  font-size: 14px;
+  color: #ee0707; 
+  margin: 0;
+  text-decoration: line-through;
+}
+
+.card-text-promocao{
+  color: rgb(0, 210, 0);
+  font-weight: 600;
+  font-size: 1rem;
+}

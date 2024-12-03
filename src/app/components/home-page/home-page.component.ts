@@ -32,6 +32,10 @@ export class HomePageComponent  implements OnInit{
   nextList(){
     this.router.navigate(['/list'])
   }
+
+  nextButtonsCategory(){
+    this.router.navigate(['/categoryListFilterButtons'])
+  }
   
 }
 

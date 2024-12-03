@@ -10,7 +10,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CardProductPromotionComponent } from './cards/card-product-promotion/card-product-promotion.component';
 import { CardListPromotionComponent } from './cards/card-list-promotion/card-list-promotion.component';
-import { FilterButtonComponent } from './filter-buttons/filter-buttons.component';
+import { FilterButtonComponent } from './buttons/filter-buttons/filter-buttons.component';
 import { PageProductFilteredComponent } from './page-product-filtered/page-product-filtered.component';
 
 
@@ -21,7 +21,7 @@ import { PageProductFilteredComponent } from './page-product-filtered/page-produ
     CardProductPromotionComponent,
     CardListPromotionComponent,
     FilterButtonComponent,
-    PageProductFilteredComponent
+    PageProductFilteredComponent,
   ],
   imports: [
     CommonModule,
@@ -33,7 +33,7 @@ import { PageProductFilteredComponent } from './page-product-filtered/page-produ
     CardListComponent,
     HomePageComponent,
     CardProductPromotionComponent,
-    FilterButtonComponent
+    FilterButtonComponent,
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA], 

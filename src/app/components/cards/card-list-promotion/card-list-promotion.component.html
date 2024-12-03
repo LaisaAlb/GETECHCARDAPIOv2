@@ -1,21 +1,36 @@
-<button (click)="previous()" class="previousButton">
-    <fa-icon [icon]="faArrowLeft" class="faArrowLeft"></fa-icon>
-    Voltar
+<!-- Botão de Voltar -->
+<button (click)="goToHomePage()" class="previousButton">
+  <img class="faArrowLeft" src="../../../../assets/img/arrow_left_alt_24dp_F3F3F3_FILL0_wght400_GRAD0_opsz24.png">
+  Voltar
 </button>
 
+<!-- Exibição dos Cards -->
 <div class="card-container">
-  <div *ngFor="let product of productsOnSale" class="card">
-      <mat-card>
-          <mat-card-content class="card-content">
-              <img mat-card-image
-                  [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'"
-                  class="img-fluid" alt="{{ product.name }}">
-              <div class="card-item">
-                  <h5 class="card-title">{{ product.name }}</h5>
-                  <p class="card-text">{{ product.description }}</p>
-                  <p class="card-text"><small>{{ product.price | currency:'BRL' : 'symbol' : '1.2-2' }}</small></p>
-              </div>
-          </mat-card-content>
-      </mat-card>
-  </div>
+  <div *ngFor="let product of productsOnSale.slice(currentPage * pageSize, (currentPage + 1) * pageSize);" class="card">
+    <mat-card>
+      <mat-card-content class="card-content">
+        <img mat-card-image
+          [src]="product.produto.imagem ? 'data:image/jpeg;base64,' + product.produto.imagem : '../../../assets/img/imgteste.png'"
+          class="img-fluid" alt="{{ product.produto.name }}" loading="lazy">
+        <div class="card-item">
+          <h5 class="card-title">{{ product.produto.name }}</h5>
+          <p class="card-text">{{ product.produto.description }}</p>
+          <div class="price-container">
+            <p>De: 
+              <small class="card-text-price">{{ product.preco | currency:'BRL':'symbol':'1.2-2' }}</small>
+            </p>
+            <p>Por: 
+              <small class="card-text-promocao">{{ product.precoPromocional | currency:'BRL':'symbol':'1.2-2' }}</small>
+            </p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>  
+
+<!-- Navegação de Páginas -->
+<div *ngIf="productsOnSale.length > pageSize" class="pagination">
+  <button (click)="previousPage()" [disabled]="currentPage === 0">Anterior</button>
+  <span>{{ currentPage + 1 }} de {{ totalPages }}</span>
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages - 1">Próxima</button>
 </div>

@@ -1,16 +1,10 @@
 <div class="button">
   <button (click)="previous()" class="previousButton">
-    <fa-icon [icon]="faArrowLeft" class="faArrowLeft"></fa-icon>
+    <img src="../../../assets/img/arrow_left_alt_24dp_F3F3F3_FILL0_wght400_GRAD0_opsz24.png" alt="">
     Voltar
   </button>
 </div>
 
-<!-- Exibe o spinner enquanto isLoading estiver true -->
-<div *ngIf="isLoading" class="loading-spinner">
-  <mat-spinner></mat-spinner>
-</div>
-
-<!-- Exibe os produtos quando isLoading for false -->
 <div *ngIf="!isLoading" class="container">
   <div class="container">
     <!-- Exibição dos produtos -->

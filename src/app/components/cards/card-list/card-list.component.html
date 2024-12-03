@@ -1,27 +1,45 @@
+<!-- Botão de Voltar -->
 <div class="button">
-    <button (click)="previous()" class="previousButton">
-        <fa-icon [icon]="faArrowLeft" class="faArrowLeft"></fa-icon>
-        Voltar
-    </button>
+  <button (click)="previousPage()" class="previousButton">
+    <img src="../../../../assets/img/arrow_left_alt_24dp_F3F3F3_FILL0_wght400_GRAD0_opsz24.png" alt="Voltar">
+    Voltar
+  </button>
 </div>
 
-<div class="card-container">
-    <div *ngFor="let product of productsCards" class="card">
-        <mat-card>
-            <mat-card-content class="card-content">
-                <img mat-card-image
-                     [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'"
-                     class="img-fluid" alt="{{ product.name }}">
-                <div class="card-item">
-                    <h5 class="card-title">{{ product.name }}</h5>
-                    <p class="card-text">{{ product.description }}</p>
-                    <p class="card-text"><small>{{ product.price | currency:'BRL' : 'symbol' : '1.2-2' }}</small></p>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
+<!-- Exibição dos Cards -->
+<div class="card-container" *ngIf="productsCards.length > 0">
+  <div *ngFor="let product of productsCards" class="card">
+    <mat-card>
+      <mat-card-content class="card-content">
+        <img
+          mat-card-image
+          [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'"
+          class="img-fluid"
+          alt="{{ product.name }}"
+        />
+        <div class="card-item">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description || 'Descrição não disponível' }}</p>
+          <p class="card-text">
+            <small>{{ product.price | currency: 'BRL':'symbol':'1.2-2' }}</small>
+          </p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
 
+<!-- Navegação de Páginas -->
+<div class="pagination" *ngIf="totalPages > 1">
+  <button (click)="previous()" [disabled]="currentPage === 0" class="pagination-button">Anterior</button>
+  <span>Página {{ currentPage + 1 }} de {{ totalPages }}</span>
+  <button (click)="next()" [disabled]="currentPage === totalPages - 1" class="pagination-button">Próxima</button>
+</div>
+
+<!-- Botão para voltar ao topo -->
 <div class="button-container">
-    <button (click)="scrollToTop()" class="scrollToTop">Voltar ao topo</button>
+  <button (click)="scrollToTop()" class="scrollToTop">
+    <img src="../../../../assets/img/arrow_upward_24dp_F3F3F3_FILL0_wght400_GRAD0_opsz24.png" alt="Voltar ao topo">
+    Voltar ao topo
+  </button>
 </div>

@@ -12,6 +12,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+
 @NgModule({
     declarations: [], 
     imports: [

@@ -1,36 +1,36 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { Product } from '../interfaces/products';
-import { IGrupo } from '../interfaces/group';
+import { IPageable } from '../interfaces/page';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CardProductService {
+  private urlProdutos = 'http://10.0.1.135:8082/produtos';
+  private totalPages: number = 0;
 
-  private urlProdutos = 'http://localhost:8080'; 
-
-  private products: Product[] = [];
-  productsOnSale: Product[] = [];
-  categoria: IGrupo[] = [];
-  
   constructor(private http: HttpClient) {}
 
-  // Carrega todos os produtos
-  getProducts(): Observable<Product[]> {
-    if (this.products.length) {
-      return of(this.products); // Se já tiver produtos carregados, retorna do cache
-    }
-  
-    return this.http.get<Product[]>(`${this.urlProdutos}/produtos`).pipe(
-      tap(data => this.products = data)  // Salva os produtos no cache
-    );
+  // Produtos paginados
+  getPaginatedProducts(pageNumber: number, pageSize: number): Observable<Product[]> {
+    return this.http
+      .get<IPageable>(`${this.urlProdutos}?page=${pageNumber}&size=${pageSize}`)
+      .pipe(
+        tap((data) => (this.totalPages = data.totalPages)),
+        map((data) => data.content)
+      );
   }
 
-  // Filtra produtos em promoção
-  filterProductOnSale(): Product[] {
-    return this.products.filter(produto => produto.promocao === 'S');
+  // Todos os produtos
+  getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.urlProdutos);
+  }
+
+  // Retorna total de páginas
+  getTotalPages(): number {
+    return this.totalPages;
   }
 }

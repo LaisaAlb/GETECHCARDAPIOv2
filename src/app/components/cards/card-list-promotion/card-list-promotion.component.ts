@@ -1,41 +1,56 @@
+import { ProductPromotion } from './../../../interfaces/productPromotion';
 import { Component, OnInit } from '@angular/core';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { CardProductService } from '../../../services/card.product.service';
+import { PromotionService } from '../../../services/promotion.service';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-card-list-promotion',
   templateUrl: './card-list-promotion.component.html',
   styleUrls: ['./card-list-promotion.component.scss']
 })
 export class CardListPromotionComponent implements OnInit {
-
-  faArrowLeft = faArrowLeft;
-  productsOnSale: any[] = [];
-  groupedProducts: any[] = [];
+  productsOnSale: ProductPromotion[] = [];
+  currentPage: number = 0;
+  pageSize: number = 10;
 
   constructor(
-    private cardProductService: CardProductService, 
+    private promotionService: PromotionService,
     private router: Router
   ) {}
 
-  ngOnInit() {
-    // Carregar os produtos e depois aplicar o filtro de produtos em promoção
-    this.cardProductService.getProducts().subscribe(() => {
-      this.productsOnSale = this.cardProductService.filterProductOnSale();
-      this.groupedProducts = this.groupProducts(this.productsOnSale, 3);
+  ngOnInit(): void {
+    this.loadProducts();
+  }
+
+  loadProducts(): void {
+    this.promotionService.getProductsOnSale().subscribe({
+      next: (data: ProductPromotion[]) => {
+        console.log('Produtos em promoção', data);
+        this.productsOnSale = data;
+      },
+      error: (err) => {
+        console.error('Erro ao carregar promoções:', err);
+      }
     });
   }
-
-  groupProducts(products: any[], groupSize: number): any[] {
-    let groups = [];
-    for (let i = 0; i < products.length; i += groupSize) {
-      groups.push(products.slice(i, i + groupSize));
-    }
-    return groups;
+  
+  
+  get totalPages(): number {
+    return Math.ceil(this.productsOnSale.length / this.pageSize);
   }
 
-  previous() {
-    this.router.navigate(['']);
+  previousPage(): void {
+    if (this.currentPage > 0) {
+      this.currentPage--;
+    }
+  }
+
+  nextPage(): void {
+    if (this.currentPage < this.totalPages - 1) {
+      this.currentPage++;
+    }
+  }
+
+  goToHomePage(): void {
+    this.router.navigate(['/']);
   }
 }

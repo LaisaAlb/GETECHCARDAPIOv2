@@ -4,12 +4,14 @@ import { CardListComponent } from './components/cards/card-list/card-list.compon
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { CardListPromotionComponent } from './components/cards/card-list-promotion/card-list-promotion.component';
 import { PageProductFilteredComponent } from './components/page-product-filtered/page-product-filtered.component';
+import { FilterListCategoryComponent } from './components/buttons/filter-list-category/filter-list-category.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent }, 
   { path: 'list', component: CardListComponent }, 
   { path: 'listPromotion', component: CardListPromotionComponent},
-  { path: 'produtos/:categoriaId', component: PageProductFilteredComponent}
+  { path: 'produtos/:categoriaId', component: PageProductFilteredComponent},
+  { path: 'categoryListFilterButtons', component: FilterListCategoryComponent}
 ];
 
 @NgModule({

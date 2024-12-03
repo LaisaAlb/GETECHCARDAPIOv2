@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../../services/category.service';
-import { IGrupo } from '../../interfaces/group';
+import { CategoryService } from '../../../services/category.service';
+import { IGrupo } from '../../../interfaces/group';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 

@@ -1,20 +1,29 @@
-.previousButton {
-    border: none;
-    background-color: #001f6ce1;
-    font-size: 30px;
-    color: #fff;
-    margin-left: 20px;
-    border-radius: 5px;
-    font-size: 15px;
-    padding: 10px;
-    margin: 10px;
-}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+.previousButton {
+  border: none;
+  background-color: #001f6ce1;
+  font-size: 15px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.previousButton .faArrowLeft {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+/* Resetando margens e padding */
 .title {
   color: #0030ab;
   font-weight: bold;
@@ -30,11 +39,11 @@
 }
 
 .card {
-  margin: 10px;
+  margin: 10px; 
   color: #FFFFFF;
   background-color: #010b43;
-  flex: 1 1 200px; 
-  max-width: 300px; 
+  flex: 1 1 200px;
+  min-width: 300px; 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -54,13 +63,19 @@ img {
   margin-right: 10px; 
 }
 
+img {
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+}
+
 @media (max-width: 767px) {
   .title {
     font-size: 1.2rem;
   }
 
   img {
-    width: 80px; 
+    width: 80px;
   }
 }
 
@@ -70,32 +85,54 @@ img {
   }
 
   .card {
-    flex: 1 1 100%; 
-    max-width: none; 
+    flex: 1 1 100%;
+    max-width: none;
   }
 }
 
-.total {
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination button {
   background-color: #003f7a;
   color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center;
+  padding: 10px 20px;
+  border: none;
+  margin: 0 10px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
-.total-container {
-  width: 100%; 
-  display: flex; 
-  justify-content: space-between; 
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
-.text-itens,
-.text-valor {
-  font-size: 1.5rem;
-  margin: 0; 
-  font-weight: 700; 
+.pagination span {
+  font-size: 1.2rem;
+  margin: 0 10px;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.card-text-price {
+  font-size: 14px;
+  color: #ee0707;
+  margin: 0;
+  text-decoration: line-through;
+}
+
+.card-text-promocao {
+  color: rgb(0, 210, 0);
+  font-weight: 600;
+  font-size: 1rem;
 }
 

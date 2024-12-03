@@ -1,17 +1,36 @@
 <div class="card-container">
-  <div *ngFor="let product of productsOnSale | slice:0:3"  class="card">
-      <mat-card>
-          <mat-card-content class="card-content">
-            <img mat-card-image
-            [src]="product.imagem ? 'data:image/jpeg;base64,' + product.imagem : '../../../assets/img/imgteste.png'"
-            class="img-fluid" alt="{{ product.name }}" loading="lazy">
-              <div class="card-item">
-                  <h5 class="card-title">{{ product.name }}</h5>
-                  <p class="card-text">{{ product.description }}</p>
-                  <p class="card-text"><small>{{ product.price | currency:'BRL' : 'symbol' : '1.2-2' }}</small></p>
-              </div>
-          </mat-card-content>
-      </mat-card>
+  <!-- Renderizar os produtos limitados -->
+  <div *ngFor="let promotion of productsOnSale" class="card">
+    <mat-card>
+      <mat-card-content class="card-content">
+        <!-- Imagem do produto -->
+        <img 
+          mat-card-image
+          [src]="promotion.produto.imagem ? 'data:image/jpeg;base64,' + promotion.produto.imagem : '../../../assets/img/imgteste.png'"
+          class="img-fluid" 
+          alt="{{ promotion.produto.name }}" 
+          loading="lazy">
+          
+        <!-- Informações do produto -->
+        <div class="card-item">
+          <h5 class="card-title">{{ promotion.produto.name }}</h5>
+          <p class="card-text">{{ promotion.produto.description }}</p>
+          <div class="price-container">
+            <!-- Preço original -->
+            <p>De: 
+              <small class="card-text-price">
+                {{ promotion.preco | currency:'BRL':'symbol':'1.2-2' }}
+              </small>
+            </p>
+            <!-- Preço promocional -->
+            <p>Por: 
+              <small class="card-text-promocao">
+                {{ promotion.precoPromocional | currency:'BRL':'symbol':'1.2-2' }}
+              </small>
+            </p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>
-

@@ -1,2 +1,25 @@
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+
+:root {
+    --primary-color: #007bff; /* Cor inicial */
+    --secondary-color: #6c757d;
+    --background-color: #ffffff;
+  
+    /* Outros estilos baseados nas variáveis */
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+  }
+  
+  button {
+    background-color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    color: #fff;
+  }
+
+  
+  
+  

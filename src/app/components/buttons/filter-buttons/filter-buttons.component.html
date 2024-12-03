@@ -2,7 +2,7 @@
   <!-- Botões de categorias -->
   <div class="categorias">
     <mat-list role="list">
-      <mat-list-item *ngFor="let categoria of categorias" (click)="carregarProdutos(categoria.id)" [routerLink]="['/']">
+      <mat-list-item *ngFor="let categoria of categorias | slice:0:7" (click)="carregarProdutos(categoria.id)" [routerLink]="['/']">
         {{ categoria.descricao }}
       </mat-list-item>
       <mat-list-item (click)="nextList()" class="nextButtonProduct" routerLink="/list">

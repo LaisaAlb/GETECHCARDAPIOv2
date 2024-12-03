@@ -6,7 +6,6 @@
 
 .title {
   color: #0030ab;
-  font-weight: bold;
   text-align: center;
   margin: 10px auto;
   font-size: 1.8rem;
@@ -19,11 +18,11 @@
 }
 
 .card {
-  margin: 10px; 
+  margin: 10px;
   color: #FFFFFF;
   background-color: #010b43;
-  flex: 1 1 200px; 
-  max-width: 300px; 
+  flex: 1 1 200px;
+  max-width: 300px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -38,7 +37,7 @@
 }
 
 img {
-  width: 100px; 
+  width: 100px;
   height: auto;
   margin-right: 10px;
 }
@@ -59,52 +58,95 @@ img {
   }
 
   .card {
-    flex: 1 1 100%; 
-    max-width: none; 
+    flex: 1 1 100%;
+    max-width: none;
   }
 }
 
-.total {
-  background-color: #003f7a;
-  color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  display: flex; 
-  justify-content: space-between; 
+.pagination {
+  display: flex;
+  justify-content: center;
   align-items: center;
+  gap: 10px;
+  margin: 20px 0;
 }
 
-.total-container {
-  width: 100%; 
-  display: flex; 
-  justify-content: space-between; 
+.pagination span {
+  font-size: 1rem;
+  color: #0030ab;
 }
 
-.text-itens,
-.text-valor {
-  font-size: 1.5rem;
-  margin: 0; 
-  font-weight: 700; 
+.pagination-button {
+  border: none;
+  background-color: #001f6ce1;
+  color: #fff;
+  font-size: 15px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pagination-button:disabled {
+  background-color: #808080; 
+  cursor: not-allowed;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background-color: #003f7a; 
+  transform: scale(1.05); 
+}
+
+.pagination-button img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
 }
 
 .button-container {
   display: flex;
-  justify-content: center; 
-  margin: 20px 0; 
+  justify-content: center;
+  margin: 20px 0;
 }
 
 .previousButton, .scrollToTop {
   border: none;
   background-color: #001f6ce1;
-  font-size: 15px; 
+  font-size: 15px;
   color: #fff;
   border-radius: 5px;
   padding: 10px 15px;
-  margin: 0 10px; 
-  cursor: pointer; 
+  margin: 0 10px;
+  cursor: pointer;
 }
 
-.button{
+.button {
   margin: 10px;
+}
+
+.button img,
+.button-container img {
+  width: 20px;
+  height: 20px;
+}
+
+.card-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-text-promocao {
+  color: rgb(0, 210, 0);
+  font-size: 1rem;
+}
+
+.scrollToTop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scrollToTop img {
+  width: 20px;
+  height: 20px;
 }

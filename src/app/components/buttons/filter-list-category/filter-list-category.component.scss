@@ -1,0 +1,126 @@
+/* Estilos Gerais */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.categorias {
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+  gap: 10px;
+}
+
+mat-list {
+  padding: 0;
+}
+
+mat-list-item {
+  display: block;
+  padding: 15px;
+  background-color: #010b43;  
+  color: #fff !important; 
+  border: 1px solid #003f7a;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%; 
+  height: 40px;
+}
+
+mat-list-item:hover {
+  background-color: #003f7a;  /* Cor de fundo ao passar o mouse */
+}
+
+.previousButton img,
+.scrollToTop img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px; /* Espaço entre o ícone e o texto */
+}
+
+.previousButton,
+.scrollToTop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 10px;
+  border: none;
+  background-color: #001f6ce1;
+  font-size: 15px;
+  color: #fff !important;  /* Cor do texto do botão */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.previousButton:hover,
+.scrollToTop:hover {
+  background-color: #003f7a;
+}
+
+button img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 767px) {
+  mat-list-item {
+    font-size: 1.2rem;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  mat-list-item {
+    font-size: 1rem;
+    padding: 10px;
+  }
+  .container {
+    width: 500px;
+  }
+}
+
+@media (max-width: 527px) {
+  .container {
+    width: 375px;
+  }
+}
+
+@media (max-width: 307px) {
+  .container {
+    width: 200px;
+  }
+}
+// ::ng-deep .container mat-list mat-list-item .mat-list-item-content .mat-list-item-primary-text {
+//   color: #fff !important; /* Cor do texto */
+// }
+
+/* Em your-component.component.scss */
+mat-list-item {
+  color: #fff; /* Cor do texto */
+  font-size: 1.2rem; /* Tamanho da fonte */
+  background-color: #010b43; /* Cor de fundo do item */
+  border: 1px solid #003f7a; /* Cor da borda */
+  padding: 10px; /* Padding do item */
+  border-radius: 5px; /* Bordas arredondadas */
+}
+
+mat-list-item:hover {
+  background-color: #003f7a; /* Cor de fundo quando passa o mouse */
+  color: #fff; /* Garantir que a cor do texto seja branca no hover */
+}
+
+mat-list-item:active {
+  background-color: #002e5d; /* Cor do item ao ser clicado */
+}
+

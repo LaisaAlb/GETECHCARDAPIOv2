@@ -1,0 +1,27 @@
+<div class="button">
+  <button (click)="previous()" class="previousButton">
+    <img src="../../../../assets/img/arrow_left_alt_24dp_F3F3F3_FILL0_wght400_GRAD0_opsz24.png" alt="Ícone de voltar">
+    Voltar
+  </button>
+</div>
+
+<div class="container">
+  <!-- Botões de categorias -->
+  <div class="categorias">
+    <mat-list role="list">
+      <mat-list-item *ngFor="let categoria of categorias" (click)="carregarProdutos(categoria.id)" [routerLink]="['/']">
+        {{ categoria.descricao }}
+      </mat-list-item>
+      <mat-list-item (click)="nextList()" class="nextButtonProduct" routerLink="/list">
+        CARDÁPIO COMPLETO
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
+
+<div class="button-container">
+  <button (click)="scrollToTop()" class="scrollToTop">
+    <img src="../../../../assets/img/arrow_upward_24dp_F3F3F3_FILL0_wght400_GRAD0_opsz24.png" alt="Ícone de voltar ao topo">
+    Voltar ao topo
+  </button>
+</div>

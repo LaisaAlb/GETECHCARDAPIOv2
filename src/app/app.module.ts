@@ -13,12 +13,14 @@ import { ComponentsModule } from './components/components.module';
 import { FooterComponent } from './templates/footer/footer.component';
 import { HeaderComponent } from './templates/header/header.component';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
+import { FilterListCategoryComponent } from './components/buttons/filter-list-category/filter-list-category.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     HeaderComponent,
+    FilterListCategoryComponent,
   ],
   imports: [
     BrowserModule,
