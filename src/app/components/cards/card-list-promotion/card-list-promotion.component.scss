@@ -7,9 +7,9 @@
 
 .previousButton {
   border: none;
-  background-color: #001f6ce1;
+  background-color: #f3f3f3f3;
   font-size: 15px;
-  color: #fff;
+  color: #000000;
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
@@ -39,13 +39,12 @@
 }
 
 .card {
+  background-color: #f3f3f3;
   margin: 10px; 
-  color: #FFFFFF;
-  background-color: #010b43;
   flex: 1 1 200px;
-  min-width: 300px; 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  max-width: 300px; 
 }
+
 
 .card-content {
   display: flex;
@@ -98,8 +97,8 @@ img {
 }
 
 .pagination button {
-  background-color: #003f7a;
-  color: #fff;
+  background-color: #d7d7d7;
+  color: #000000;
   padding: 10px 20px;
   border: none;
   margin: 0 10px;

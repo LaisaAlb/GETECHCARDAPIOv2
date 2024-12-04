@@ -5,18 +5,28 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { CardListPromotionComponent } from './components/cards/card-list-promotion/card-list-promotion.component';
 import { PageProductFilteredComponent } from './components/page-product-filtered/page-product-filtered.component';
 import { FilterListCategoryComponent } from './components/buttons/filter-list-category/filter-list-category.component';
+import { resolverService } from './resolver/resolver.service';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent }, 
-  { path: 'list', component: CardListComponent }, 
-  { path: 'listPromotion', component: CardListPromotionComponent},
-  { path: 'produtos/:categoriaId', component: PageProductFilteredComponent},
-  { path: 'categoryListFilterButtons', component: FilterListCategoryComponent}
+  { 
+    path: '', 
+    component: HomePageComponent, 
+    resolve: { data: resolverService }, // Usa o resolver para carregar dados
+    runGuardsAndResolvers: 'always' 
+  }, 
+  { path: 'list', component: CardListComponent, runGuardsAndResolvers: 'always' }, 
+  { path: 'listPromotion', component: CardListPromotionComponent, runGuardsAndResolvers: 'always' },
+  { path: 'produtos/:categoriaId', component: PageProductFilteredComponent, runGuardsAndResolvers: 'always' },
+  { path: 'categoryListFilterButtons', component: FilterListCategoryComponent, runGuardsAndResolvers: 'always' }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes, 
-    { scrollPositionRestoration: 'top' } )],
+  imports: [
+    RouterModule.forRoot(routes, { 
+      scrollPositionRestoration: 'top',
+      onSameUrlNavigation: 'reload' 
+    })
+  ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

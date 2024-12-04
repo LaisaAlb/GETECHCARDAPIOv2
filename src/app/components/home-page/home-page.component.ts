@@ -1,8 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { Router } from '@angular/router';
-import { CardProductService } from '../../services/card.product.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../../interfaces/products';
 
 @Component({
@@ -16,14 +13,22 @@ export class HomePageComponent  implements OnInit{
   allProducts: Product[] = [];
 
   constructor(
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
+  products: any;
+  categories: any;
+  promotions: any;
+
+
   ngOnInit(): void {
-  
+    this.route.data.subscribe(({ data }) => {
+      this.products = data.products; // Dados de produtos
+      this.categories = data.categories; // Dados de categorias
+      this.promotions = data.promotions; // Dados de promoções
+    });
   }
-   faArrowRight = faArrowRight;
-   faArrowLeft = faArrowLeft;
 
   //Next products
   next() {

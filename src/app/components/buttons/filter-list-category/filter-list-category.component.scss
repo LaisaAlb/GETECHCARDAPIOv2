@@ -1,4 +1,3 @@
-/* Estilos Gerais */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -24,26 +23,22 @@ mat-list {
 mat-list-item {
   display: block;
   padding: 15px;
-  background-color: #010b43;  
-  color: #fff !important; 
-  border: 1px solid #003f7a;
+  background-color: #f3f3f3;
+  border: 1px solid #dcdcdc;
   border-radius: 5px;
   margin-bottom: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   width: 100%; 
   height: 40px;
-}
-
-mat-list-item:hover {
-  background-color: #003f7a;  /* Cor de fundo ao passar o mouse */
+  color: #000000
 }
 
 .previousButton img,
 .scrollToTop img {
   width: 20px;
   height: 20px;
-  margin-right: 5px; /* Espaço entre o ícone e o texto */
+  margin-right: 5px; 
 }
 
 .previousButton,
@@ -54,9 +49,9 @@ mat-list-item:hover {
   margin: 20px 0;
   padding: 10px;
   border: none;
-  background-color: #001f6ce1;
+  background-color: #d7d7d7;
   font-size: 15px;
-  color: #fff !important;  /* Cor do texto do botão */
+  color: #000000 !important;  /* Cor do texto do botão */
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -64,7 +59,7 @@ mat-list-item:hover {
 
 .previousButton:hover,
 .scrollToTop:hover {
-  background-color: #003f7a;
+  background-color: #b8b8b8;
 }
 
 button img {
@@ -100,27 +95,5 @@ button img {
   .container {
     width: 200px;
   }
-}
-// ::ng-deep .container mat-list mat-list-item .mat-list-item-content .mat-list-item-primary-text {
-//   color: #fff !important; /* Cor do texto */
-// }
-
-/* Em your-component.component.scss */
-mat-list-item {
-  color: #fff; /* Cor do texto */
-  font-size: 1.2rem; /* Tamanho da fonte */
-  background-color: #010b43; /* Cor de fundo do item */
-  border: 1px solid #003f7a; /* Cor da borda */
-  padding: 10px; /* Padding do item */
-  border-radius: 5px; /* Bordas arredondadas */
-}
-
-mat-list-item:hover {
-  background-color: #003f7a; /* Cor de fundo quando passa o mouse */
-  color: #fff; /* Garantir que a cor do texto seja branca no hover */
-}
-
-mat-list-item:active {
-  background-color: #002e5d; /* Cor do item ao ser clicado */
 }
 

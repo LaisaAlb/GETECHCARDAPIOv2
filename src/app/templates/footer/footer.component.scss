@@ -1,25 +1,18 @@
 .footer {
-  background-color: #021442;
-  display: flex;
-  justify-content: flex-end;
-  height: 85px;
-  color: #fff;
-  width: 100%;
-  padding: 10px 20px;
-  box-sizing: border-box;
-  margin-top: 5%;
-
-  @media (max-width: 768px) {
-    justify-content: center;
+    background-color: #f8f8f8;
+    padding: 20px;
+    font-size: 14px;
+    color: #555;
+    margin-top: 20px;
+    height: 100px;
+    display: flex;
+    box-sizing: border-box;
+    text-align: center;
   }
-}
-
-.footer .logo {
-  max-height: 50px;
-  margin-top: 10px;
-  margin-left: 30px;
-}
-
-.example-spacer {
-  flex: 1 1 auto;
-}
+  
+  .footer .footer-link {
+    text-decoration: none;
+    color: #555;
+    text-align: center;
+  }
+  

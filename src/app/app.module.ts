@@ -30,8 +30,9 @@ import { FilterListCategoryComponent } from './components/buttons/filter-list-ca
     HttpClientModule,
     RouterModule,
     SlickCarouselModule,
-    MatToolbarModule
-  ],
+    MatToolbarModule,
+
+    ],
   exports: [
   ],
   providers: [
